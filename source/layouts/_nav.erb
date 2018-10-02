@@ -1,0 +1,42 @@
+<% nav.each do |link| %>
+  <% if link.dropdown %>
+    <% active = link.dropdown.any?{ |l|
+      !l.separator && current_page.url =~ /^#{l.url}/
+    } ? 'active' : nil %>
+    <% content_tag :li,
+      class: [ 'nav-item', 'dropdown', active ].compact.join(' ') do %>
+      <% dropdown_id = "ndp-#{link.title.parameterize}" %>
+      <%= link_to link.title, '#', class: 'nav-link dropdown-toggle',
+        id: dropdown_id, role: 'button', data: { toggle: 'dropdown' },
+        aria: { haspopup: true, expanded: false } %>
+
+      <% content_tag :ul, class: 'dropdown-menu',
+        aria: { labelledby: dropdown_id } do %>
+        <% link.dropdown.each do |sublink| %>
+          <% if sublink.separator %>
+            <div class="dropdown-divider"></div>
+          <% else %>
+            <% active = current_page.url =~ /^#{sublink.url}/ ? 'active' : nil %>
+            <% link_to sublink.url,
+              class: [ 'dropdown-item', active ].compact.join(' ') do %>
+              <%= sublink.title %>
+              <% if active %>
+                <span class="sr-only">(current)</span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% active = current_page.url =~ /^#{link.url}/ ? 'active' : nil %>
+    <% content_tag :li, class: [ 'nav-item', active ].compact.join(' ') do %>
+      <% link_to link.url, class: 'nav-link' do %>
+        <%= link.title %>
+        <% if active %>
+          <span class="sr-only">(current)</span>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

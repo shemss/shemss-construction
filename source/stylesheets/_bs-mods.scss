@@ -1,0 +1,13 @@
+.container-fluid {
+  max-width: (1140px + (60px * 2));
+
+  @include media-breakpoint-up(md) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
