@@ -3,6 +3,23 @@ title: Welcome to Middleman
 ---
 
 <div class="container-fluid">
+  <div class="mb-5 to-edge-right to-edge-left">
+    <% content_tag :div, class: 'video-hero', data: {
+        video: image_path('home/hero.mp4'),
+        slides: 3.times.map do |i|
+          image_path("home/hero/hero-#{i+1}.jpg")
+        end.to_json
+      } do %>
+      <div class="video-hero-placeholder video-hero-slide-1">
+        <div class="container-fluid">
+          <div class="video-hero-inner">
+            <div class="home-video-hero-aspect"></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="row">
     <div class="col-sm">
       <h2 class="h5 text-uppercase">
@@ -36,8 +53,8 @@ title: Welcome to Middleman
     </div>
 
     <div class="col-md">
-      <div class="text-uppercase text-white bg-dark p-4 to-edge-right">
-        <h2 class="h5"><small>Included with every Shemss house</small></h2>
+      <div class="text-uppercase text-white bg-dark p-3 p-sm-4 to-edge-right">
+        <h2 class="h5 hul"><small>Included with every Shemss house</small></h2>
         <ul>
           <li>Architecture &amp; engineering</li>
           <li>Permitting</li>
@@ -59,9 +76,9 @@ title: Welcome to Middleman
   </div>
 
   <div class="row">
-    <div class="col-sm">
-      <div class="bg-light p-5 to-edge-left">
-        <h2>Built To Last</h2>
+    <div class="col-md">
+      <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
+        <h2 class="hul">Built To Last</h2>
         <p><em>Less work, more me time.</em></p>
         <p>
           Simply put, we build better houses &mdash; houses that stand the test
@@ -74,12 +91,17 @@ title: Welcome to Middleman
         </p>
       </div>
     </div>
-    <div class="col-sm"></div>
+    <div class="col-md">
+      <div class="vertical-center to-edge-left to-edge-right">
+        <%= image_tag 'home/built-to-last.jpg',
+          class: 'img-fluid vertical-center-inner' %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="text-white bg-secondary">
-  <div class="container-fluid">
+<div class="text-white p-4 p-sm-5 home-heart">
+  <div class="container-fluid py-3 py-md-5">
     <p class="lead text-center"><em>
       Home is where the heart is&hellip;<br>
       Your home is a reflection of you &mdash; the person you are, the life you
@@ -91,27 +113,32 @@ title: Welcome to Middleman
 </div>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm">
-      <div class="text-white bg-dark p-5">
-        <h2>Built to Evolve</h2>
-        <p><em>A house that easily accommodates your ever-changing needs</em></p>
-        <p>Just as you grow and change, so too should your house.</p>
-        <p>
-          A Shemss home is built with flexibility in mind. With an eye towards
-          the future, we’ve put in place an infrastructure that makes
-          maintenance a cinch and upgrades a breeze. The future maybe “Smart”
-          but Shemss houses are built smarter.
-        </p>
+  <div class="row mt-md-3 mt-lg-0 mb-5 built-to-evolve">
+    <div class="col-md col-lg-5 mb-md-5">
+      <div class="vertical-center">
+        <div class="text-white bg-dark p-3 p-sm-5 p-md-4 to-edge-left to-edge-right pad-edge vertical-center-inner">
+          <h2 class="hul">Built to Evolve</h2>
+          <p><em>A house that easily accommodates your ever-changing needs</em></p>
+          <p>Just as you grow and change, so too should your house.</p>
+          <p>
+            A Shemss home is built with flexibility in mind. With an eye towards
+            the future, we’ve put in place an infrastructure that makes
+            maintenance a cinch and upgrades a breeze. The future maybe “Smart”
+            but Shemss houses are built smarter.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="col-sm"></div>
+    <div class="col-md col-lg-7 mb-md-5">
+      <div class="to-edge-left to-edge-right to-edge-right-mega">
+        <%= image_tag 'home/built-to-evolve.jpg',
+          class: 'img-fluid' %>
+      </div>
+    </div>
   </div>
 
-  <h3>Building a Shemss home, simply better.</h3>
-
-  <div class="row">
-    <div class="col-sm border-right">
+  <div class="row mb-md-5">
+    <div class="col-sm-6 col-lg mb-5 process-col">
       <h4 class="h6 text-uppercase">Finding Land</h4>
       <p>
         Selecting land is an exciting, and potentially daunting, first step in
@@ -122,7 +149,7 @@ title: Welcome to Middleman
         team.
       </p>
     </div>
-    <div class="col-sm border-right">
+    <div class="col-sm-6 col-lg mb-5 process-col">
       <h4 class="h6 text-uppercase">Design Your Home</h4>
       <p>
         Step two is where the fun really begins &mdash; designing your dream
@@ -136,7 +163,7 @@ title: Welcome to Middleman
           class: 'btn btn-dark text-uppercase' %>
       </p>
     </div>
-    <div class="col-sm border-right">
+    <div class="col-sm-6 col-lg mb-5 process-col">
       <h4 class="h6 text-uppercase">Permitting</h4>
       <p>
         At Shemss we’re old pros at efficiently navigating through the
@@ -145,7 +172,7 @@ title: Welcome to Middleman
         with minimal hold-ups.
       </p>
     </div>
-    <div class="col-sm">
+    <div class="col-sm-6 col-lg mb-5 process-col">
       <h4 class="h6 text-uppercase">Building Your Home</h4>
       <p>
         Buckle up! Faster than a speeding bullet. Once site work is complete the
@@ -156,9 +183,9 @@ title: Welcome to Middleman
   </div>
 
   <div class="row">
-    <div class="col-sm">
-      <div class="bg-light p-5">
-        <h2>Built to Design</h2>
+    <div class="col-md">
+      <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
+        <h2 class="hul">Built to Design</h2>
         <p><em>
           Your home is a reflection of you, your personality and the lifestyle
           you live.
@@ -182,10 +209,15 @@ title: Welcome to Middleman
         </p>
       </div>
     </div>
-    <div class="col-sm"></div>
+    <div class="col-md">
+      <div class="vertical-center to-edge-left to-edge-right">
+        <%= image_tag 'home/built-to-design.jpg',
+          class: 'img-fluid vertical-center-inner' %>
+      </div>
+    </div>
   </div>
 
-  <div class="bg-info text-white text-center">
+  <div class="text-white bg-secondary text-center px-2 py-5 to-edge-right to-edge-left ready-evolve">
     <h2>Ready to Get Evolved?</h2>
     <p class="lead"><em>The home of the Future is Waiting For You</em></p>
     <p>
@@ -195,9 +227,9 @@ title: Welcome to Middleman
   </div>
 </div>
 
-<div class="bg-light">
+<div class="bg-light py-5">
   <div class="container-fluid">
-    <blockquote class="blockquote">
+    <blockquote class="blockquote mx-auto pt-lg-5" style="max-width: 600px;">
       Shemss Homes has completely changed the way I look at my home. Not only
       should it be comfortable and a place where I can raise my family, but it
       should be smart, efficient and simple to maintain. The house embodies
@@ -210,3 +242,5 @@ title: Welcome to Middleman
     </blockquote>
   </div>
 </div>
+
+<% content_for :foot, javascript_include_tag('home') %>

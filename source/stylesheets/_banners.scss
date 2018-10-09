@@ -1,0 +1,28 @@
+@keyframes gradient {
+  0%, 100%  { background-position: top center, 0% 50%; }
+  50%       { background-position: top center, 100% 50%; }
+}
+
+.home-heart {
+  background-color: #9996a2;
+  background-image: image-url("home/blueprint.png"),
+    linear-gradient(45deg, #a29e96 20%, #9996a2 45%, #9996a2 55%, #a29e96 80%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover, 300% 300%;
+  animation: gradient 60s ease infinite;
+}
+
+.ready-evolve {
+  background-color: #a3a3a3 !important;
+  background-image:
+    linear-gradient(45deg, #8a6e6e 20%, #a3a3a3 45%, #a3a3a3 55%, #8a6e6e 80%);
+  background-size: 300% 300%;
+  animation: gradient 60s ease infinite;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: -3rem;
+    position: relative;
+    z-index: 1;
+  }
+}

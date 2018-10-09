@@ -27,6 +27,11 @@ page '/*.txt', layout: false
 #   },
 # )
 
+# Reload the browser automatically whenever files change
+configure :development do
+  activate :livereload
+end
+
 # Helpers
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
@@ -36,6 +41,12 @@ page '/*.txt', layout: false
 #     'Helping'
 #   end
 # end
+
+activate :external_pipeline,
+  name: :globify,
+  command: build? ? 'NODE_ENV=production npm run build-js' : 'npm run dev',
+  source: 'tmp/assets',
+  latency: 1
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings

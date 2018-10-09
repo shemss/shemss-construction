@@ -1,5 +1,57 @@
-<footer class="text-center container-fluid pt-4 pb-4 mt-5 border-top">
-  Shemss Homes &copy; 2018.
-  <%= link_to 'Privacy Policy', '/privacy-policy/' %>
-  Contact: 530-621-2200
+<footer class="pt-5 pb-4">
+  <div class="container-fluid">
+    <ul class="list-inline text-center">
+      <li class="list-inline-item">
+        <%= link_to 'Our Homes', '/our-homes/' %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'Services', '/services/' %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'Projects', '/projects/' %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'About', '/about/' %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'Contact', '/contact/' %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'Careers', '/careers/' %>
+      </li>
+    </ul>
+
+    <hr>
+
+    <ul class="list-inline text-center">
+      <li class="list-inline-item">
+        Shemss Construction &copy; 2018.
+      </li>
+      <li class="list-inline-item">
+        <%= link_to 'Privacy Policy', '/privacy-policy/' %>
+      </li>
+      <li class="list-inline-item">
+        Contact: 530-621-2200
+      </li>
+
+      <li class="list-inline-item">
+        <% link_to 'https://www.facebook.com/shemssinc/' do %>
+          <i class="fa fa-fw fa-facebook-official" aria-hidden="true"></i>
+          <span class="sr-only">Facebook</span>
+        <% end %>
+      </li>
+      <li class="list-inline-item">
+        <% link_to 'https://www.pinterest.com/shemssinc/' do %>
+          <i class="fa fa-fw fa-pinterest" aria-hidden="true"></i>
+          <span class="sr-only">Pinterest</span>
+        <% end %>
+      </li>
+      <li class="list-inline-item">
+        <% link_to 'https://www.instagram.com/shemssinc/' do %>
+          <i class="fa fa-fw fa-instagram" aria-hidden="true"></i>
+          <span class="sr-only">Instagram</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
 </footer>

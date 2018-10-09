@@ -4,3 +4,5 @@
 .sass-cache
 build/
 node_modules/
+tmp/
+yarn-error.log
