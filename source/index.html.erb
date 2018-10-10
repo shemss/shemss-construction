@@ -5,17 +5,26 @@ title: Welcome to Middleman
 <div class="container-fluid">
   <div class="mb-5 to-edge-right to-edge-left">
     <% content_tag :div, class: 'video-hero', data: {
-        video: image_path('home/hero.mp4'),
-        slides: 3.times.map do |i|
-          image_path("home/hero/hero-#{i+1}.jpg")
-        end.to_json
+        video: image_path('home/hero/hero.mp4'),
+        slides: [{
+          image:    image_path('home/hero/built-to-last.jpg'),
+          caption:  'Built to Last',
+          href:     '#built-to-last',
+          time:     10.6666667,
+        },{
+          image:    image_path('home/hero/built-to-evolve.jpg'),
+          caption:  'Built to Evolve',
+          href:     '#built-to-evolve',
+          time:     21.3333333,
+        },{
+          image:    image_path('home/hero/built-to-design.jpg'),
+          caption:  'Built to Design',
+          href:     '#built-to-design',
+          time:     32,
+        }].to_json
       } do %>
-      <div class="video-hero-placeholder video-hero-slide-1">
-        <div class="container-fluid">
-          <div class="video-hero-inner">
-            <div class="home-video-hero-aspect"></div>
-          </div>
-        </div>
+      <div class="video-hero-placeholder">
+        <div class="embed-responsive embed-responsive-16by9"></div>
       </div>
     <% end %>
   </div>
@@ -75,7 +84,7 @@ title: Welcome to Middleman
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="built-to-last">
     <div class="col-md">
       <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
         <h2 class="hul">Built To Last</h2>
@@ -112,7 +121,7 @@ title: Welcome to Middleman
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" id="built-to-evolve">
   <div class="row mt-md-3 mt-lg-0 mb-5 built-to-evolve">
     <div class="col-md col-lg-5 mb-md-5">
       <div class="vertical-center">
@@ -182,7 +191,7 @@ title: Welcome to Middleman
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="built-to-design">
     <div class="col-md">
       <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
         <h2 class="hul">Built to Design</h2>
