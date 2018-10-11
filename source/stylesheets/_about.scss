@@ -1,0 +1,15 @@
+.about-img {
+  position: relative;
+  z-index: 3;
+}
+
+.about-text {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    margin-top: 0;
+
+    &-outer {
+      position: relative
+    }
+  }
+}
