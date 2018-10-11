@@ -1,0 +1,120 @@
+.scene-wrapper {
+  min-height: 460px;
+  overflow: hidden;
+  display: table;
+  width: 100%;
+  height: calc(100vh - 169px - 56px);
+
+  background: #000;
+}
+
+.scene,
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.scene {
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+  display: table-cell;
+
+  // Force HW acceleration
+  transform: translate3d(0px, 0px, 0px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.layer {
+  position: absolute;
+}
+
+@keyframes scene-spin-stars {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(-360deg); }
+}
+
+.scene-stars {
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  top: -15%;
+
+  @include media-breakpoint-up(lg) {
+    width: 180%;
+    left: -40%;
+    top: -25%;
+  }
+
+  animation: scene-spin-stars 4500s infinite linear;
+}
+
+.scene-sky,
+.scene-mountain,
+.scene-lake {
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.scene-sky {
+  background-image: radial-gradient(ellipse at 60% bottom,
+    rgba(72, 90, 94, 0.6), rgba(0, 0, 0, 0.6));
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+$cloud-top: 20%;
+$cloud-scale: 0.75;
+$cloud-width: 4096px * $cloud-scale;
+$cloud-height: 836px * $cloud-scale;
+
+@keyframes scene-drift-clouds {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-$cloud-width); }
+}
+
+.scene-clouds {
+  background-image: image-url("contact/scene/clouds.png");
+  background-repeat: repeat-x;
+  background-size: $cloud-width $cloud-height;
+  background-position: 0px $cloud-top;
+  opacity: 0.3;
+
+  width: ($cloud-width * 2);
+  height: 100%;
+  left: 0;
+  position: absolute;
+
+  animation: scene-drift-clouds 360s infinite linear;
+}
+
+.scene-mountain,
+.scene-lake {
+  background-position: center bottom;
+  background-size: contain;
+
+  height: 100%;
+
+  width: 150%;
+  left: -25%;
+
+  @include media-breakpoint-up(md) {
+    width: 120%;
+    left: -10%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 100%;
+    left: 0%;
+  }
+}
+
+.scene-mountain { background-image: image-url("contact/scene/mountain.png"); }
+.scene-lake     { background-image: image-url("contact/scene/lake.jpg"); }
