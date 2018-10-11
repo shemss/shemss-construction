@@ -42,6 +42,8 @@ end
 #   end
 # end
 
+activate :directory_indexes
+
 activate :external_pipeline,
   name: :globify,
   command: build? ? 'NODE_ENV=production npm run build-js' : 'npm run dev',
