@@ -1,11 +1,17 @@
 .scene-wrapper {
-  min-height: 460px;
   overflow: hidden;
   display: table;
   width: 100%;
-  height: calc(100vh - 169px - 56px);
+  height: calc(100vh - 169px - 56px - 301px);
 
   background: #000;
+
+  min-height: 64vw;
+  max-height: 80vw;
+
+  @include media-breakpoint-up(sm) {
+    min-height: 49vw;
+  }
 }
 
 .scene,
@@ -118,3 +124,27 @@ $cloud-height: 836px * $cloud-scale;
 
 .scene-mountain { background-image: image-url("contact/scene/mountain.png"); }
 .scene-lake     { background-image: image-url("contact/scene/lake.jpg"); }
+
+@keyframes scene-pulse-logo {
+  0% { opacity: 0.25; }
+  50% { opacity: 0.65; }
+  100% { opacity: 0.25; }
+}
+
+.scene-logo {
+  background-image: image-url("contact/scene/logo-white.svg");
+  background-repeat: no-repeat;
+  background-position: center 25%;
+  background-size: contain;
+  opacity: 0.65;
+
+  margin: 2% 10% 0;
+  width: 80%;
+  height: 40%;
+
+  animation: scene-pulse-logo 10s infinite linear;
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
