@@ -1,9 +1,9 @@
-- title: Our Homes
-  url: /our-homes/
-- title: Services
-  url: /services/
-- title: Projects
-  url: /projects/
+# - title: Our Homes
+#   url: /our-homes/
+# - title: Services
+#   url: /services/
+# - title: Projects
+#   url: /projects/
 - title: About
   url: /about/
 - title: Contact
