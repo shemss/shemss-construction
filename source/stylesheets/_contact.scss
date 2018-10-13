@@ -148,3 +148,16 @@ $cloud-height: 836px * $cloud-scale;
     display: none;
   }
 }
+
+
+
+.contact-block {
+  @include media-breakpoint-up(md) {
+    margin-top: -83px;
+    margin-bottom: 83px;
+  }
+}
+
+.p-org {
+  text-transform: uppercase;
+}
