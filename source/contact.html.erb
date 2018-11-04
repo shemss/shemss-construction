@@ -32,7 +32,7 @@ title: Contact
           <h1 class="hul"><%= current_page.data.title %></h1>
 
           <p class="h-adr adr">
-            <span class="p-name p-org fn org">Shemss</span><br>
+            <span class="p-name p-org fn org">Shemss, Inc.</span><br>
             <span class="p-street-address street-address">P.O. Box 17653</span><br>
             <span class="p-locality locality">South Lake Tahoe</span>,
             <abbr class="p-region region" title="California">CA</abbr>
@@ -41,12 +41,12 @@ title: Contact
 
           <p class="p-tel tel">
             <span class="type">Office:</span>
-            <span class="value">530-621-2200</span>
+            <span class="value"><%= data.site.phone %></span>
           </p>
 
           <p>
-            <a class="u-email email"
-              href="mailto:info@shemss.com">info@shemss.com</a>
+            <%= link_to data.site.email, "mailto:#{data.site.email}",
+              class: 'u-email email' %>
           </p>
         </div>
       </div>
