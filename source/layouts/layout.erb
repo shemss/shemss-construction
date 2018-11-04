@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><%= current_page.data.title || "Middleman" %></title>
+    <title><%= [ current_page.data.title, data.site.title,
+      current_page.data.subtitle ].compact.join(' - ') %></title>
     <%= stylesheet_link_tag 'site' %>
     <link rel="stylesheet" crossorigin="anonymous"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
