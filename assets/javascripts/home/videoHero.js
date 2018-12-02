@@ -1,5 +1,3 @@
-import isAutoplaySupported from '../utils/isAutoplaySupported'
-
 const videoHero = {
   createCaption (slideData) {
     const caption         = document.createElement('div')
@@ -28,7 +26,7 @@ const videoHero = {
     slide.className = 'carousel-item'
 
     if (!index) {
-      image.addEventListener('load', this.removePlaceholder)
+      image.addEventListener('load', this.removeVideo)
       slide.className += ' active'
     }
 
@@ -81,28 +79,43 @@ const videoHero = {
     }
   },
 
-  initVideo () {
-    const video   = document.createElement('video')
-    const source  = document.createElement('source')
+  playVideo () {
+    try {
+      const promise = this.video.play()
+      if (promise)
+        promise.then(this.initCaptions)
+        .catch(this.initCarousel)
+    } catch (e) {
+      this.initCarousel()
+    }
+  },
 
-    video.className = 'img-fluid'
-    video.setAttribute('loop', '')
-    video.setAttribute('muted', '')
-    video.setAttribute('autoplay', '')
-    video.setAttribute('playsinline', '')
+  initCaptions () {
+    this.currentCaption = 0
+    this.captions = this.slides.map(this.createCaption)
+    this.captions[0].classList.add('active')
+    this.captions.forEach(caption => this.hero.appendChild(caption))
+    this.video.addEventListener('timeupdate', this.changeCaption)
+  },
+
+  initVideo () {
+    const source  = document.createElement('source')
+    this.video    = document.createElement('video')
+
+    this.video.className = 'img-fluid'
+    this.video.setAttribute('loop', '')
+    this.video.setAttribute('muted', '')
+    this.video.setAttribute('autoplay', '')
+    this.video.setAttribute('playsinline', '')
 
     source.setAttribute('type', 'video/mp4')
     source.setAttribute('src', this.hero.getAttribute('data-video'))
 
-    this.currentCaption = 0
-    this.captions = this.slides.map(this.createCaption)
-    this.captions[0].classList.add('active')
-    video.addEventListener('timeupdate', this.changeCaption)
-    video.addEventListener('loadstart', this.removePlaceholder)
+    this.video.addEventListener('loadstart', this.removePlaceholder)
+    this.video.addEventListener('canplay', this.playVideo)
 
-    video.appendChild(source)
-    this.hero.appendChild(video)
-    this.captions.forEach(caption => this.hero.appendChild(caption))
+    this.video.appendChild(source)
+    this.hero.appendChild(this.video)
   },
 
   removePlaceholder () {
@@ -110,23 +123,25 @@ const videoHero = {
     this.hero.removeChild(placeholder)
   },
 
+  removeVideo () {
+    this.hero.removeChild(this.video)
+  },
+
   init () {
     this.hero = document.querySelector('.video-hero')
     if (!this.hero) return
     this.slides = JSON.parse(this.hero.getAttribute('data-slides'))
-
-    isAutoplaySupported(supported => {
-      if (supported)
-        this.initVideo()
-      else
-        this.initCarousel()
-    })
+    this.initVideo()
   },
 }
 
 videoHero.createSlide       = videoHero.createSlide.bind(videoHero)
 videoHero.changeCaption     = videoHero.changeCaption.bind(videoHero)
+videoHero.playVideo         = videoHero.playVideo.bind(videoHero)
 videoHero.removePlaceholder = videoHero.removePlaceholder.bind(videoHero)
+videoHero.removeVideo       = videoHero.removeVideo.bind(videoHero)
+videoHero.initCarousel      = videoHero.initCarousel.bind(videoHero)
+videoHero.initCaptions      = videoHero.initCaptions.bind(videoHero)
 videoHero.init              = videoHero.init.bind(videoHero)
 
 export default videoHero
