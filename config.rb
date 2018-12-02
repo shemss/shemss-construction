@@ -45,8 +45,8 @@ end
 activate :directory_indexes
 
 activate :external_pipeline,
-  name: :globify,
-  command: build? ? 'NODE_ENV=production npm run build-js' : 'npm run dev',
+  name: :parcel,
+  command: build? ? 'NODE_ENV=production yarn build-js' : 'yarn dev',
   source: 'tmp/assets',
   latency: 1
 
