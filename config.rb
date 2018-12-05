@@ -53,9 +53,22 @@ activate :external_pipeline,
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
+configure :build do
+  # Minify CSS on build
+  activate :minify_css
+
+  # Minify HTML on build
+  activate :minify_html do |html|
+    html.remove_input_attributes  = false
+    html.preserve_line_breaks     = true
+  end
+
+  # Gzip everything
+  activate :gzip
+
+  # Fingerprints on assets
+  activate :asset_hash,
+    exts: (app.config[:asset_extensions] - %w(.ico .map) + %w(.mp4))
+end
 
 activate :s3_sync
