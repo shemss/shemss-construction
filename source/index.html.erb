@@ -4,7 +4,7 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
 
 <div class="container-fluid">
   <div class="mb-5 to-edge-right to-edge-left">
-    <% content_tag :div, class: 'video-hero', data: {
+    <%= content_tag :div, nil, class: 'video-hero', data: {
         video: image_path('home/hero/hero.mp4'),
         slides: [{
           image:    image_path('home/hero/built-to-last.jpg'),
@@ -22,11 +22,7 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
           href:     '#built-to-design',
           time:     32,
         }].to_json
-      } do %>
-      <div class="video-hero-placeholder">
-        <div class="embed-responsive embed-responsive-16by9"></div>
-      </div>
-    <% end %>
+      } %>
   </div>
 
   <div class="row">

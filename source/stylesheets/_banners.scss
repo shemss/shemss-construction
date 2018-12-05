@@ -30,10 +30,6 @@
 .video-hero {
   position: relative;
 
-  &-placeholder {
-    background-image: radial-gradient(circle, #a3a3a3, #8a6e6e);
-  }
-
   > .carousel-caption {
     opacity: 0;
     transition: opacity 1s;
