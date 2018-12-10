@@ -1,0 +1,48 @@
+.video-preview {
+  display: block;
+  position: relative;
+
+  &, &:hover { text-decoration: none; }
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #fff;
+    opacity: 0.2;
+    transition: opacity 0.5s;
+  }
+
+  &::after {
+    content: "\25B6";
+
+    color: #fff;
+    opacity: 0.9;
+    text-shadow: 0 1px rgba(#000, 0.25);
+    font-size: 5em;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    z-index: 2;
+
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s;
+  }
+
+  &:hover{
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

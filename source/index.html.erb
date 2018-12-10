@@ -138,8 +138,10 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
     </div>
     <div class="col-md col-lg-7 mb-md-5">
       <div class="to-edge-left to-edge-right to-edge-right-mega">
-        <%= image_tag 'home/built-to-evolve.jpg',
-          class: 'img-fluid' %>
+        <a href="#modalVideo" class="video-preview" data-toggle="modal">
+          <%= image_tag 'home/built-to-evolve.jpg',
+            class: 'img-fluid' %>
+        </a>
       </div>
     </div>
   </div>
@@ -248,6 +250,29 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
         Scot J Erwin
       </footer>
     </blockquote>
+  </div>
+</div>
+
+<div class="modal fade youtube-modal" id="modalVideo" tabindex="-1"
+  role="dialog" aria-labelledby="modalVideoTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalVideoTitle">
+          We Don't Build Houses, We Build Homes
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item youtube-modal-iframe"
+            data-src="https://www.youtube.com/embed/g-ldZZTrIoM?autoplay=1"
+            allowfullscreen allowautoplay allow="autoplay; fullscreen"></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
