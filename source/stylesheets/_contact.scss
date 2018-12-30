@@ -161,3 +161,12 @@ $cloud-height: 836px * $cloud-scale;
 .p-org {
   text-transform: uppercase;
 }
+
+.bg-house {
+  @include media-breakpoint-up(md) {
+    background-image: image-url("home/house-sketch-corner.svg");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 70% 70%;
+  }
+}
