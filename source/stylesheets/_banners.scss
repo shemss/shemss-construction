@@ -3,6 +3,11 @@
   50%       { background-position: top center, 100% 50%; }
 }
 
+@keyframes gradient-2 {
+  0%, 100%  { background-position: center right, 0% 50%; }
+  50%       { background-position: center right, 100% 50%; }
+}
+
 .home-heart {
   background-color: #9996a2;
   background-image: image-url("home/blueprint.png"),
@@ -15,10 +20,12 @@
 
 .ready-evolve {
   background-color: #a3a3a3 !important;
-  background-image:
+  background-image: image-url("home/house-sketch-corner.svg"),
     linear-gradient(45deg, #8a6e6e 20%, #a3a3a3 45%, #a3a3a3 55%, #8a6e6e 80%);
-  background-size: 300% 300%;
-  animation: gradient 60s ease infinite;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain, 300% 300%;
+  animation: gradient-2 60s ease infinite;
 
   @include media-breakpoint-up(lg) {
     margin-bottom: -3rem;
