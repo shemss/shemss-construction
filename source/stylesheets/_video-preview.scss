@@ -13,6 +13,8 @@
     right: 0;
     bottom: 0;
 
+    z-index: 4;
+
     background: #fff;
     opacity: 0;
     transition: opacity 0.5s;
@@ -30,7 +32,7 @@
     left: 50%;
     top: 50%;
 
-    z-index: 2;
+    z-index: 4;
 
     transform: translate(-50%, -50%);
     transition: opacity 0.5s;

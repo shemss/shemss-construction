@@ -6,8 +6,10 @@ title: About
   <div class="row">
     <div class="col-md order-md-2 mt-md-5">
       <div class="to-edge-left to-edge-right">
-        <%= image_tag 'about/serg.jpg', alt: 'Serg Shemyakin',
-          class: 'img-fluid about-img' %>
+        <a href="#modalVideo" class="video-preview" data-toggle="modal">
+          <%= image_tag 'about/serg.jpg', alt: 'Serg Shemyakin',
+            class: 'img-fluid about-img' %>
+        </a>
       </div>
     </div>
     <div class="col-md order-md-1">
@@ -87,3 +89,7 @@ title: About
     </div>
   </div>
 </div>
+
+<%= partial 'layouts/video-modal' %>
+
+<% content_for :foot, javascript_include_tag('home') %>
