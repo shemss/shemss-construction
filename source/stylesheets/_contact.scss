@@ -164,7 +164,7 @@ $cloud-height: 836px * $cloud-scale;
 
 .bg-house {
   @include media-breakpoint-up(md) {
-    background-image: image-url("home/house-sketch-corner.svg");
+    background-image: image-url("home/lamp.svg");
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: 70% 70%;
