@@ -1,0 +1,57 @@
+.classes-banner {
+  position: relative;
+  background-color: rgba(#353a3f, 0.7);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: image-url("classes/bg.jpg");
+    background-size: cover;
+  }
+
+  &-date {
+    border: 1px solid;
+    padding: 0.2rem 1rem;
+  }
+}
+
+.classes-overlap {
+  @include media-breakpoint-up(md) {
+    &-left {
+      margin-right: -100px;
+      margin-top: 4rem;
+    }
+
+    &-right {
+      margin-left: -150px;
+      padding-left: 250px !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &-left {
+      margin-right: -200px;
+    }
+
+    &-right {
+      margin-left: -200px;
+      padding-left: 400px !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    &-left {
+      margin-right: -250px;
+    }
+
+    &-right {
+      margin-left: -250px;
+      padding-left: 500px !important;
+    }
+  }
+}
