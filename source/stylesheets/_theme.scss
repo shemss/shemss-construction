@@ -8,3 +8,12 @@
     width: 3rem;
   }
 }
+
+.anchor {
+  position: absolute;
+  margin-top: -56px;
+
+  @include media-breakpoint-up(md) {
+    margin-top: -72px;
+  }
+}
