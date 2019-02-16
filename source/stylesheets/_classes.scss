@@ -18,6 +18,13 @@
     border: 1px solid;
     padding: 0.2rem 1rem;
   }
+
+  @include media-breakpoint-down(xs) {
+    > .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 .classes-overlap {
