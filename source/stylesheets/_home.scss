@@ -6,8 +6,10 @@
   }
 
   @include media-breakpoint-up(lg) {
-    &:nth-child(2) {
-      border-right: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+
+    &:last-child {
+      border-right: 0;
     }
   }
 }

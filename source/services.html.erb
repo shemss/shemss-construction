@@ -1,0 +1,268 @@
+---
+subtitle: Construction and Home Renovation in Lake Tahoe and Reno
+---
+
+<div class="container-fluid">
+  <div class="mb-5 to-edge-right to-edge-left">
+    <%= content_tag :div, nil, class: 'video-hero', data: {
+        video: image_path('home/hero/hero.mp4'),
+        slides: [{
+          image:    image_path('home/hero/built-to-last.jpg'),
+          caption:  'New Construction',
+          href:     '#new-construction',
+          time:     16,
+        },{
+          image:    image_path('home/hero/built-to-design.jpg'),
+          caption:  'Remodeling',
+          href:     '#remodeling',
+          time:     32,
+        }].to_json
+      } %>
+  </div>
+
+  <div class="anchor" id="new-construction"></div>
+
+  <div class="row mb-5">
+    <div class="col-md-7">
+      <h2 class="h5 text-uppercase hul">
+        <small>New Construction</small>
+      </h2>
+
+      <p><em>
+        From design through completion our qualified crew is dedicated to
+        helping you with every step of the way!
+      </em></p>
+
+      <p>
+        Our many choices make it easy to choose a
+        <a href="#">model</a>
+        which best suits you. With Shemss flexibility, unique options, and
+        finishing touches, it has never been easier to find a perfect home.
+        We’ll guide you through the various unique stages of building a new
+        construction home. From selecting a model, finding the perfect lot,
+        securing financing, design, and construction.
+      </p>
+
+      <p>
+        Building beautiful homes is our line of expertise and passion. We hope
+        that our enthusiasm makes your dream home journey incredible.
+      </p>
+
+      <p>
+        If you’re looking for simplicity and elegance, consider a
+        Modern/Contemporary home with strong geometric shapes and an open floor
+        plan.
+      </p>
+    </div>
+
+    <div class="col-md-5">
+      <div class="text-white bg-dark p-3 p-sm-4 to-edge-right">
+        <h2 class="h5 text-uppercase hul"><small>Our Process</small></h2>
+
+        <p><em>
+          We believe that collaboration between our team and the client is
+          essential for a successful outcome.
+        </em></p>
+
+        <p>
+          With an open dialogue and clear communication, it’s an easy and
+          enjoyable process, especially when realizing the vision of your dream
+          home is coming to life. We’re open to let you be as “hands-on” or as
+          “hands-off” as you wish.
+        </p>
+
+        <p>
+          We offer a free consultation to help you feel assured that a Shemss
+          home is perfect for you. If you decide to work with us we have a
+          streamlined process to make your journey one that’s low stress and
+          positive experience.
+        </p>
+
+        <ul class="text-uppercase">
+          <li>Preliminary Schematic Design &amp; Budgeting</li>
+          <li>Design Detail &amp; Permit Applications</li>
+          <li>Scheduling</li>
+          <li>Construction</li>
+          <li>Completion</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-md-5">
+    <div class="col-sm-6 col-lg mb-5 process-col">
+      <svg class="img-fluid mb-4 process-icon">
+        <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+          .call(image_path 'services/process.svg#schematic') %>
+      </svg>
+
+      <h4 class="h6 text-uppercase">
+        Preliminary Schematic Design &amp; Budgeting
+      </h4>
+
+      <p><em>
+        In this phase we lay the groundwork to kick-start your project into
+        action.
+      </em></p>
+
+      <p>Steps include:</p>
+
+      <p>
+        Highlight project goals and the general scope of work, Establish a
+        preliminary schematic design, Devise the floor and site plan, and Review
+        budget allocation. At this point, we sign a contract to move forward
+        with the project.
+      </p>
+
+      <p>At this point, we sign a contract to move forward with the project.</p>
+    </div>
+
+    <div class="col-sm-6 col-lg mb-5 process-col">
+      <svg class="img-fluid mb-4 process-icon">
+        <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+          .call(image_path 'services/process.svg#detail') %>
+      </svg>
+
+      <h4 class="h6 text-uppercase">Design Detail &amp; Permit Applications</h4>
+
+      <p><em>Let’s get this party started: In this phase the fun begins.</em></p>
+
+      <p>
+        We will do fine tuning and detailing of the schematic design, creating a
+        final master plan. Select materials and fixtures that reflect your
+        taste. Prepare and submit construction and engineering documents to the
+        appropriate city/county departments.
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-lg mb-5 process-col">
+      <svg class="img-fluid mb-4 process-icon">
+        <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+          .call(image_path 'services/process.svg#scheduling') %>
+      </svg>
+
+      <h4 class="h6 text-uppercase">Scheduling</h4>
+
+      <p><em>
+        With permit in hand it’s time to arrange all the details and fast-track
+        the project.
+      </em></p>
+
+      <p>
+        Subcontractors and craftsmen will be scheduled, material procurement
+        will be done, and the project timeline will be reviewed.
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-lg mb-5 process-col">
+      <svg class="img-fluid mb-4 process-icon">
+        <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+          .call(image_path 'services/process.svg#construction') %>
+      </svg>
+
+      <h4 class="h6 text-uppercase">Construction</h4>
+
+      <p><em>Where your dream home meets reality.</em></p>
+
+      <p>
+        We will ensure that site preparation is complete, material delivered,
+        hands-on project management will ensure adherence to timeline. Careful
+        supervision of all moving parts to ensure the highest quality of
+        workmanship performed by our trade professionals.
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-lg mb-5 process-col">
+      <svg class="img-fluid mb-4 process-icon">
+        <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+          .call(image_path 'services/process.svg#completion') %>
+      </svg>
+
+      <h4 class="h6 text-uppercase">Completion</h4>
+
+      <p><em>Time flies when you’re having fun.</em></p>
+
+      <p>
+        24 weeks go by in the blink of an eye! Our work is done and we hand you
+        the keys! Many of our clients have become good friends as we have taken
+        the construction journey together. We wish you much joy and happiness in
+        your home.
+      </p>
+
+      <p>
+        Shemss stands proudly behind the quality and durability of their work.
+        For this reason, we offer a fully comprehensive warranty on our homes.
+      </p>
+    </div>
+  </div>
+
+  <div class="row mt-md-3 mt-lg-0 mb-5 built-to-evolve">
+    <div class="col-md col-lg-5 mb-md-5">
+      <div class="vertical-center">
+        <div class="text-white bg-dark p-3 p-sm-5 p-md-4 to-edge-left to-edge-right pad-edge vertical-center-inner">
+          <h2 class="hul">Preconstruction</h2>
+
+          <ul>
+            <li>Architect + Interior Design Coordination</li>
+            <li>Assistance with Securing Financing</li>
+            <li>Broker Referral</li>
+            <li>Assistance with Finish Selection</li>
+            <li>Permit Procurement</li>
+            <li>Site Selection</li>
+            <li>Space Planning and Schematic Layout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md col-lg-7 mb-md-5">
+      <div class="to-edge-left to-edge-right to-edge-right-mega">
+        <a href="#modalVideo" class="video-preview" data-toggle="modal">
+          <%= image_tag 'home/built-to-evolve.jpg',
+            class: 'img-fluid' %>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="hul">Building Faster</h2>
+
+  <div class="row">
+    <div class="col-md col-lg-7 mb-md-5">
+      <p><em>Shemss, moving at a pace of modern living.</em></p>
+      <p>
+        By choosing Shemss Homes, you’ve signed up to be at the forefront of a
+        progressive movement disrupting the construction industry. Out with the
+        old, in with the new. The narrative and traditions of what designing and
+        building a new home means is moving towards the future! Gone with
+        delays, stress, red tape, hidden costs, and confusion. We provide a
+        simple path to an affordable thoughtfully designed home. Shemss homes
+        are built to last, They’re functional, smart, easy to maintain and ready
+        to tackle this new millennium.
+      </p>
+    </div>
+    <div class="col-md col-lg-5 mb-md-5">
+      <div class="row">
+        <div class="col-sm col-md-12 col-lg">
+          <p class="text-center mt-3 mt-md-0">
+            <%= image_tag 'services/building-faster.svg',
+              class: 'img-fluid', width: 230 %>
+        </div>
+        <div class="col-sm col-md-12 col-lg">
+          <ul class="faster-list text-uppercase mt-3 mt-sm-5 mt-md-3 mt-lg-2">
+            <li>Shemss home</li>
+            <li>New custom home</li>
+            <li>New custom home teardown</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <%= partial 'layouts/get-evolved' %>
+  </div>
+</div>
+
+<%= partial 'layouts/video-modal' %>
+
+<% content_for :foot, javascript_include_tag('home') %>
