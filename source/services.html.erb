@@ -243,9 +243,23 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
     <div class="col-md col-lg-5 mb-md-5">
       <div class="row">
         <div class="col-sm col-md-12 col-lg">
-          <p class="text-center mt-3 mt-md-0">
-            <%= image_tag 'services/building-faster.svg',
-              class: 'img-fluid', width: 230 %>
+          <div class="mt-3 mt-md-0 mb-3">
+            <div class="clock-face">
+              <div class="clock-outer">
+                <div class="clock-inner">
+                  <div class="hours-container">
+                    <div class="hours"></div>
+                  </div>
+                  <div class="minutes-container">
+                    <div class="minutes"></div>
+                  </div>
+                  <div class="seconds-container">
+                    <div class="seconds"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-sm col-md-12 col-lg">
           <ul class="faster-list text-uppercase mt-3 mt-sm-5 mt-md-3 mt-lg-2">
@@ -266,3 +280,4 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
 <%= partial 'layouts/video-modal' %>
 
 <% content_for :foot, javascript_include_tag('home') %>
+<% content_for :foot, javascript_include_tag('services') %>
