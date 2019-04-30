@@ -1,43 +1,214 @@
 ---
 title: Classes
+
+classes:
+- date: 2019-05-15
+  name: Site Preparation
+  topics:
+  - Temporary Utilities
+  - Marking the Lot &amp; House Outline
+  - Mark Trees To Be Removed
+  - Mark U.S.A. for Utilities
+  - Orange Fence for Safety Around Property
+  - BMP Fence for Erosion Control
+- date: 2019-05-17
+  name: Excavation
+  topics:
+  - Tree Stump Removal
+  - Compaction
+  - Leveling &amp; Grading
+  - Sloping &amp; Shoring
+- date: 2019-05-19
+  name: Trenching
+  topics:
+  - Mark Foundation of Home
+  - Excavation of Foundation &amp; Piers
+  - Trenches for Utilities
+  - Underground Utilities
+  - Backfill Utility Trenches
+- date: 2019-05-20
+  name: Foundation &amp; Concrete
+  topics:
+  - Trench Leveling
+  - Form Shaping
+  - Run Rebar
+  - Mixing &amp; Pouring
+  - Settling &amp; Trowel
+- date: 2019-05-22
+  name: Backfill Excavation
+  topics:
+  - Post-Foundation Dirt Fill
+  - Choosing Fill Material
+  - BMP Forms
+  - Gravel
+- date: 2019-05-23
+  name: Concrete Flatwork
+  topics:
+  - Forms
+  - Pour Concrete
+  - Trowel
+  - Finish Work
+- date: 2019-05-25
+  name: Subfloor
+  topics:
+  - Layout
+  - Pressure Treated Plating
+  - Water Barrier
+  - Girders, Rim Board
+  - I-Joists
+- date: 2019-05-26
+  name: Underfloor Mechanical
+  topics:
+  - Underfloor Plumbing
+  - Underfloor Electrical
+  - Underfloor Heating &amp; Air
+- date: 2019-05-28
+  name: Framing
+  topics:
+  - Subfloor Sheeting
+  - Layout
+  - Plating
+  - Frame Walls
+  - Bracing, Leveling, Sheeting
+- date: 2019-06-01
+  name: Stairs Framing
+  topics:
+  - Cut Stringers
+  - Treads &amp; Risers
+- date: 2019-06-03
+  name: Trusses
+  topics:
+  - Layout Trusses
+  - Roof Support
+  - Fascia
+  - Roof Sheeting
 ---
 
 <div class="jumbotron classes-banner mb-0 mb-md-5 px-0">
   <div class="container-fluid text-center text-uppercase text-white">
-    <p class="h3"><span class="classes-banner-date">May 17 2019</span></p>
     <h1 class="display-1">Hands on Class</h1>
+    <p class="h5 mb-4"><span class="classes-banner-date">Learn to Build for Free</span></p>
     <a class="btn btn-primary btn-lg" href="#sign-up" role="button">Sign Up</a>
   </div>
 </div>
 
 <div class="container-fluid">
-  <div class="row flex-row-reverse">
+  <div class="row mb-5">
     <div class="col-md">
-      <div class="text-uppercase text-white bg-dark p-3 p-sm-4 to-edge-right classes-overlap-right">
-        <h2 class="h4 hul">Gain knowledge</h2>
+      <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
+        <h2 class="hul">Learn a Skill &amp; Gain Knowledge</h2>
         <p>
-          Learn a skill in construction from experianced contractors and
-          builders. Roll up your sleaves for a hands on experiance with Shemss
-          Construction.
+          Roll up your sleeves for a free hands on experience with SHEMSS. Learn
+          a skill in construction from experienced contractors and builders.
         </p>
+        <ul class="text-uppercase">
+          <% current_page.data.classes.each do |leclass| %>
+            <li><%= leclass.name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
 
     <div class="col-sm">
-      <div class="to-edge-left classes-overlap-left">
-        <a href="#modalVideo" class="video-preview" data-toggle="modal">
-          <%= image_tag 'home/built-to-evolve.jpg',
-            class: 'img-fluid' %>
-        </a>
+      <div class="to-edge-left to-edge-right vertical-center">
+        <div class="vertical-center-inner">
+          <a href="#modalVideo" class="video-preview" data-toggle="modal">
+            <%= image_tag 'classes/video.jpg',
+              class: 'img-fluid' %>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="anchor" id="sign-up"></div>
+  <h2 class="display-4 text-center">Upcoming Classes</h2>
 
-  <div class="bg-light py-5 px-5">
+  <p class="text-uppercase text-center">
+    All hands on classes are free; subscribe to our email for updates on
+    upcoming classes.
+  </p>
+
+  <div class="row">
+    <% current_page.data.classes.each do |leclass| %>
+      <div class="col-md-6 mb-4">
+        <div class="bg-dark text-white classes-class"
+          style="background-image: url('<%=
+            image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
+          %>');">
+          <div class="classes-class-inner p-3">
+            <p class="mb-5">
+              <span class="badge badge-pill badge-light">
+                <%= leclass.date.strftime('%Y') %>
+              </span>
+            </p>
+            <h3><%= leclass.name %> Class</h3>
+            <ul class="text-uppercase">
+              <% leclass.topics.each do |topic| %>
+                <li><%= topic %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-sm-6 mb-4">
+      <div class="bg-dark text-white classes-class"
+        style="background-image: url('<%= image_path 'classes/classes/more.jpg' %>');">
+        <div class="classes-class-inner p-3 d-flex align-items-center">
+          <h3 class="text-center flex-fill">More to be Announced</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="anchor" id="sign-up"></div>
+
+<div class="bg-light py-5 text-center">
+  <div class="container-fluid">
+    <h4 class="mb-3">Share Classes</h4>
+    <% page_url = URI.escape data.site.url + current_page.url, ':/' %>
+    <ul class="list-inline mb-5">
+      <li class="list-inline-item">
+        <div class="border border-primary rounded-circle"
+          style="width: 4rem; height: 4rem; padding-top: 0.85rem; border-width: 3px !important;">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=<%= page_url %>"
+            title="Share on Facebook"
+          >
+            <i class="fa fa-fw fa-2x fa-facebook" aria-hidden="true"></i>
+          </a>
+        </div>
+      </li>
+      <li class="list-inline-item">
+        <div class="border border-primary rounded-circle"
+          style="width: 4rem; height: 4rem; padding-top: 0.85rem; border-width: 3px !important;">
+          <a
+            target="_top"
+            href="mailto:?subject=Check Out Shemss Hands on Classes!&amp;body=<%= page_url %>"
+            title="Share via Email"
+          >
+            <i class="fa fa-fw fa-2x fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
+      </li>
+      <li class="list-inline-item">
+        <div class="border border-primary rounded-circle"
+          style="width: 4rem; height: 4rem; padding-top: 0.85rem; border-width: 3px !important;">
+          <a
+            target="_blank"
+            href="https://twitter.com/intent/tweet?text=Check Out Shemss Hands on Classes! <%= page_url %>"
+            title="Share on Twitter"
+          >
+            <i class="fa fa-fw fa-2x fa-twitter" aria-hidden="true"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
+
     <!-- Begin Mailchimp Signup Form -->
-    <div id="mc_embed_signup">
+    <div id="mc_embed_signup" style="margin: 0 auto; max-width: 660px;">
       <form
         action="https://shemss.us20.list-manage.com/subscribe/post?u=9dfd16dd11e3f7007d94ad890&amp;id=17e8ddc27f"
         method="post"
@@ -48,29 +219,33 @@ title: Classes
         novalidate
       >
         <div id="mc_embed_signup_scroll">
-          <h2>Subscribe to our mailing list</h2>
+          <h2 class="h4 mb-3 text-left">Subscribe</h2>
 
           <div class="mc-field-group form-group">
-            <label for="mce-EMAIL">
-              Email Address  <abbr title="required" class="asterisk">*</abbr>
+            <label for="mce-EMAIL" class="sr-only">
+              Email <abbr title="required" class="asterisk">*</abbr>
             </label>
             <input type="email" value="" name="EMAIL"
-              class="form-control required email" id="mce-EMAIL">
+              class="form-control required email" id="mce-EMAIL"
+              placeholder="Email">
           </div>
           <div class="mc-field-group form-group">
-            <label for="mce-FNAME">First Name </label>
+            <label for="mce-FNAME" class="sr-only">First Name </label>
             <input type="text" value="" name="FNAME"
-              class="form-control" id="mce-FNAME">
+              class="form-control" id="mce-FNAME"
+              placeholder="First Name">
           </div>
           <div class="mc-field-group form-group">
-            <label for="mce-LNAME">Last Name </label>
+            <label for="mce-LNAME" class="sr-only">Last Name </label>
             <input type="text" value="" name="LNAME"
-              class="form-control" id="mce-LNAME">
+              class="form-control" id="mce-LNAME"
+              placeholder="Last Name">
           </div>
           <div class="mc-field-group size1of2 form-group">
-            <label for="mce-PHONE">Phone Number </label>
+            <label for="mce-PHONE" class="sr-only">Phone </label>
             <input type="tel" name="PHONE"
-              class="form-control" value="" id="mce-PHONE">
+              class="form-control" value="" id="mce-PHONE"
+              placeholder="Phone">
           </div>
           <div class="mc-field-group">
             <input type="hidden" value="1" name="group[345][1]"
@@ -82,13 +257,16 @@ title: Classes
           </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_9dfd16dd11e3f7007d94ad890_17e8ddc27f" tabindex="-1" value=""></div>
           <div class="clear form-group">
-            <p>
-              By clicking “Subscribe” you signify that you agree to the
-              <%= link_to 'Terms and Condition', '#' %>
-            </p>
             <input type="submit" value="Subscribe" name="subscribe"
               id="mc-embedded-subscribe" class="button btn btn-primary">
           </div>
+          <p>
+            In order to participate in hands on classes, you must sign our
+            <%= link_to 'Waiver of Liability and Release',
+              '/assets/waiver.pdf', target: '_blank' %>.
+            You can either print and sign a copy or sign one on location if
+            available.
+          </p>
         </div>
       </form>
     </div>
@@ -97,6 +275,6 @@ title: Classes
   </div>
 </div>
 
-<%= partial 'layouts/video-modal' %>
+<%= partial 'layouts/video-modal', locals: { video: '3Je2ULP75NY' } %>
 
 <% content_for :foot, javascript_include_tag('home') %>
