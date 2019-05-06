@@ -1,5 +1,25 @@
 ---
 subtitle: Construction and Home Renovation in Lake Tahoe and Reno
+
+testimonials:
+- name: Randy Soriano
+  quote: >
+    Shemss made building our custom home easy. They would meet with us as many
+    times as we needed, we had no worries and felt well-taken care off, if we
+    were to build another home, we would build with Shemss again.
+- name: Scott Erwin
+  quote: >
+    I’ve been to their open house and loved the effort Shemss puts into their
+    homes. The use of space is well managed, the home had lots of beautiful
+    windows. Shemss is certainly different from other homes that I’ve seen in
+    Tahoe, we are now looking for a lot and looking forward to build our first
+    home with Shemss.
+- name: Jonard Luff
+  quote: >
+    Very easy to work with every step of the way. Shemss has help us find our
+    lot, we had no idea how much work goes into just that alone. We are glad we
+    chose Shemss to build our custom home, Serge is very creative in how he
+    builds, our home is special to us with a personal touch.
 ---
 
 <div class="container-fluid">
@@ -262,17 +282,35 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
 
 <div class="bg-light py-5">
   <div class="container-fluid">
-    <blockquote class="blockquote mx-auto pt-lg-5" style="max-width: 600px;">
-      Shemss Homes has completely changed the way I look at my home. Not only
-      should it be comfortable and a place where I can raise my family, but it
-      should be smart, efficient and simple to maintain. The house embodies
-      everything I love in a home: Beautiful, modern and built to last. I
-      couldn’t be happier with my Shemss!
 
-      <footer class="blockquote-footer text-uppercase text-center">
-        Scot J Erwin
-      </footer>
-    </blockquote>
+    <div id="carousel-testimonials" class="carousel slide carousel-text"
+      data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% current_page.data.testimonials.each.with_index do |testimonial, i| %>
+          <%= content_tag :li, nil,
+            class: i == 0 ? 'active bg-primary' : 'bg-secondary',
+            data: { target: '#carousel-testimonials', slide_to: i } %>
+        <% end %>
+      </ol>
+      <div class="carousel-inner">
+        <% current_page.data.testimonials.each.with_index do |testimonial, i| %>
+          <% content_tag :div, class: [
+            'carousel-item mb-5',
+            i == 0 ? 'active' : nil,
+          ].compact.join(' ') do %>
+            <blockquote class="blockquote mx-auto pt-lg-5"
+              style="max-width: 600px">
+              <%= testimonial.quote %>
+
+              <footer class="blockquote-footer text-uppercase text-center mt-3">
+                <%= testimonial.name %>
+              </footer>
+            </blockquote>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
 
