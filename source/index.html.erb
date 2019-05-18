@@ -163,10 +163,11 @@ testimonials:
     </div>
     <div class="col-md col-lg-7 mb-md-5">
       <div class="to-edge-left to-edge-right to-edge-right-mega">
-        <a href="#modalVideo" class="video-preview" data-toggle="modal">
-          <%= image_tag 'home/built-to-evolve.jpg',
-            class: 'img-fluid' %>
-        </a>
+        <%= partial 'layouts/video-modal', locals: {
+          video: 'g-ldZZTrIoM',
+          title: 'We Don’t Build Houses, We Build Homes',
+          image: image_tag('home/built-to-evolve.jpg', class: 'img-fluid'),
+        } %>
       </div>
     </div>
   </div>
@@ -313,7 +314,5 @@ testimonials:
 
   </div>
 </div>
-
-<%= partial 'layouts/video-modal', locals: { video: 'g-ldZZTrIoM' } %>
 
 <% content_for :foot, javascript_include_tag('home') %>

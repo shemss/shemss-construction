@@ -226,10 +226,12 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
     </div>
     <div class="col-md col-lg-7 mb-md-5">
       <div class="to-edge-left to-edge-right to-edge-right-mega">
-        <a href="#modalVideo" class="video-preview" data-toggle="modal">
-          <%= image_tag 'home/built-to-evolve.jpg',
-            class: 'img-fluid' %>
-        </a>
+        <%= partial 'layouts/video-modal', locals: {
+          video: 'COtp2nuCpdo',
+          title: 'Homey Getaway - Contemporary Home | Shemss The Tata Project',
+          image: image_tag('services/preconstruction.jpg',
+            alt: 'Preconstruction', class: 'img-fluid'),
+        } %>
       </div>
     </div>
   </div>
@@ -426,10 +428,12 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
     </div>
     <div class="col-md col-lg-7 mb-md-5">
       <div class="to-edge-left to-edge-right to-edge-right-mega">
-        <a href="#modalVideo" class="video-preview" data-toggle="modal">
-          <%= image_tag 'home/built-to-evolve.jpg',
-            class: 'img-fluid' %>
-        </a>
+        <%= partial 'layouts/video-modal', locals: {
+          video: 'S9vwRs2SIeg',
+          title: 'Simply Majestic - Mountain Modern Cabin | Shemss The Tata Project',
+          image: image_tag('services/estimating-construction.jpg',
+            alt: 'Estimating/Construction', class: 'img-fluid'),
+        } %>
       </div>
     </div>
   </div>
@@ -471,8 +475,6 @@ subtitle: Construction and Home Renovation in Lake Tahoe and Reno
     </p>
   </div>
 </div>
-
-<%= partial 'layouts/video-modal', locals: { video: 'g-ldZZTrIoM' } %>
 
 <% content_for :foot, javascript_include_tag('home') %>
 <% content_for :foot, javascript_include_tag('services') %>

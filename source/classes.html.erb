@@ -112,10 +112,11 @@ classes:
     <div class="col-sm">
       <div class="to-edge-left to-edge-right vertical-center">
         <div class="vertical-center-inner">
-          <a href="#modalVideo" class="video-preview" data-toggle="modal">
-            <%= image_tag 'classes/video.jpg',
-              class: 'img-fluid' %>
-          </a>
+          <%= partial 'layouts/video-modal', locals: {
+            video: '3Je2ULP75NY',
+            title: 'Hands on Class',
+            image: image_tag('classes/video.jpg', alt: 'Classes',
+              class: 'img-fluid'), } %>
         </div>
       </div>
     </div>
@@ -274,7 +275,5 @@ classes:
     <!--End mc_embed_signup-->
   </div>
 </div>
-
-<%= partial 'layouts/video-modal', locals: { video: '3Je2ULP75NY' } %>
 
 <% content_for :foot, javascript_include_tag('home') %>
