@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'middleman', '~> 4.3.0.rc.1'
-gem 'middleman-autoprefixer', '~> 2.9'
+gem 'middleman', '~> 4.3.5'
+gem 'middleman-autoprefixer'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
 
-gem 'middleman-s3_sync', '~> 4.0', '>= 4.0.3'
+gem 'middleman-s3_sync'
 gem 'mime-types'
