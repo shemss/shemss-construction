@@ -11,11 +11,7 @@ const resizeItems = () => {
       return height
     })
 
-    console.log(heights)
-
     const tallestHeight = Math.max(...heights)
-
-    console.log(tallestHeight)
 
     items.forEach(item => item.style.height = tallestHeight + 'px')
   })
