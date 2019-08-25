@@ -2,52 +2,51 @@
   <div class="container-fluid text-center text-md-left">
     <p>
       Locations we serve:<br class="d-sm-none">
-      South Lake Tahoe, CA | Reno, NV | Truckee, CA
+      <span class="text-nowrap">
+        California License # 977400
+        <br class="d-sm-none"><span class="d-none d-sm-inline">|</span>
+        Nevada License # 0085404
+      </span>
     </p>
 
     <hr>
 
-    <div class="d-md-flex justify-content-between">
+    <div class="d-md-flex align-items-center justify-content-between">
       <ul class="list-inline">
         <li class="list-inline-item">
-          &copy; <%= Time.now.year %> SHEMSS, Inc.
+          <span class="text-nowrap">
+            Copyright &copy; <%= Time.now.year %> SHEMSS, Inc.
+          </span>
+          <span class="text-nowrap">All rights reserved.</span>
         </li>
-        <li class="list-inline-item">
-          <%= link_to 'Privacy Policy', '/privacy-policy/' %> |
+        <li class="list-inline-item text-nowrap">
+          <%= link_to 'Privacy Policy', '/privacy-policy/' %>
+          <br class="d-sm-none"><span class="d-none d-sm-inline">|</span>
           Contact: <%= data.site.phone %>
         </li>
       </ul>
 
-      <ul class="list-inline">
+      <ul class="list-inline text-nowrap">
         <li class="list-inline-item">
           <% link_to 'https://www.facebook.com/shemssinc/', target: '_blank' do %>
-            <i class="fa fa-fw fa-facebook-official" aria-hidden="true"></i>
+            <i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i>
             <span class="sr-only">Facebook</span>
           <% end %>
         </li>
         <li class="list-inline-item">
-          <% link_to 'https://www.pinterest.com/shemssinc/', target: '_blank' do %>
-            <i class="fa fa-fw fa-pinterest" aria-hidden="true"></i>
-            <span class="sr-only">Pinterest</span>
-          <% end %>
-        </li>
-        <li class="list-inline-item">
           <% link_to 'https://www.instagram.com/shemss.inc/', target: '_blank' do %>
-            <i class="fa fa-fw fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-2x fa-instagram" aria-hidden="true"></i>
             <span class="sr-only">Instagram</span>
           <% end %>
         </li>
         <li class="list-inline-item">
           <% link_to 'https://www.youtube.com/channel/UCKWFX2uDnvO4D73nkT-5BuA',
             target: '_blank' do %>
-            <i class="fa fa-fw fa-youtube" aria-hidden="true"></i>
+            <i class="fa fa-2x fa-youtube" aria-hidden="true"></i>
             <span class="sr-only">YouTube</span>
           <% end %>
         </li>
       </ul>
-
-      <%= image_tag 'logo.svg', class: 'my-n1',
-        style: 'height: 2rem; width: auto' %>
     </div>
   </div>
 </footer>
