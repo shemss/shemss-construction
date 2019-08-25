@@ -121,51 +121,11 @@ classes:
       </div>
     </div>
   </div>
-
-  <h2 class="display-4 text-center">Upcoming Classes</h2>
-
-  <p class="text-uppercase text-center">
-    All hands-on classes are free; subscribe to our email for updates on
-    upcoming classes.
-  </p>
-
-  <div class="row">
-    <% current_page.data.classes.each do |leclass| %>
-      <div class="col-md-6 mb-4">
-        <div class="bg-dark text-white classes-class"
-          style="background-image: url('<%=
-            image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
-          %>');">
-          <div class="classes-class-inner p-3">
-            <p class="mb-5">
-              <span class="badge badge-pill badge-light">
-                <%= leclass.date.strftime('%Y') %>
-              </span>
-            </p>
-            <h3><%= leclass.name %> Class</h3>
-            <ul class="text-uppercase">
-              <% leclass.topics.each do |topic| %>
-                <li><%= topic %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="col-sm-6 mb-4">
-      <div class="bg-dark text-white classes-class"
-        style="background-image: url('<%= image_path 'classes/classes/more.jpg' %>');">
-        <div class="classes-class-inner p-3 d-flex align-items-center">
-          <h3 class="text-center flex-fill">More to be Announced</h3>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="anchor" id="sign-up"></div>
 
-<div class="bg-light py-5 text-center">
+<div class="bg-light mb-5 py-5 text-center">
   <div class="container-fluid">
     <h4 class="mb-3">Share Classes</h4>
     <% page_url = URI.escape data.site.url + current_page.url, ':/' %>
@@ -273,6 +233,48 @@ classes:
     </div>
 
     <!--End mc_embed_signup-->
+  </div>
+</div>
+
+<div class="container-fluid">
+  <h2 class="display-4 text-center">Upcoming Classes</h2>
+
+  <p class="text-uppercase text-center">
+    All hands-on classes are free; subscribe to our email for updates on
+    upcoming classes.
+  </p>
+
+  <div class="row">
+    <% current_page.data.classes.each do |leclass| %>
+      <div class="col-md-6 mb-4">
+        <div class="bg-dark text-white classes-class"
+          style="background-image: url('<%=
+            image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
+          %>');">
+          <div class="classes-class-inner p-3">
+            <p class="mb-5">
+              <span class="badge badge-pill badge-light">
+                <%= leclass.date.strftime('%Y') %>
+              </span>
+            </p>
+            <h3><%= leclass.name %> Class</h3>
+            <ul class="text-uppercase">
+              <% leclass.topics.each do |topic| %>
+                <li><%= topic %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-sm-6 mb-4">
+      <div class="bg-dark text-white classes-class"
+        style="background-image: url('<%= image_path 'classes/classes/more.jpg' %>');">
+        <div class="classes-class-inner p-3 d-flex align-items-center">
+          <h3 class="text-center flex-fill">More to be Announced</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
