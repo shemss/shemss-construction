@@ -158,10 +158,6 @@ $cloud-height: 836px * $cloud-scale;
   }
 }
 
-.p-org {
-  text-transform: uppercase;
-}
-
 .bg-house {
   @include media-breakpoint-up(md) {
     background-image: image-url("home/house-in-woods.png");
