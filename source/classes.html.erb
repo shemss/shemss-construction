@@ -4,6 +4,7 @@ title: Classes
 classes:
 - date: 2019-05-15
   name: Site Preparation
+  video: F83H_jl5IcY
   topics:
   - Temporary Utilities
   - Marking the Lot &amp; House Outline
@@ -246,7 +247,8 @@ classes:
 
   <div class="row">
     <% current_page.data.classes.each do |leclass| %>
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4 d-flex flex-column">
+        <% classMarkup = capture do %>
         <div class="bg-dark text-white classes-class"
           style="background-image: url('<%=
             image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
@@ -265,6 +267,18 @@ classes:
             </ul>
           </div>
         </div>
+        <% end %>
+
+        <% if leclass.video %>
+          <%= partial 'layouts/video-modal', locals: {
+            title: leclass.name,
+            video: leclass.video,
+            image: classMarkup,
+            class_name: 'flex-fill',
+          } %>
+        <% else %>
+          <%= classMarkup %>
+        <% end %>
       </div>
     <% end %>
     <div class="col-sm-6 mb-4">
