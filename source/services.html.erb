@@ -2,27 +2,31 @@
 subtitle: Construction and Home Renovation in Lake Tahoe and Reno
 ---
 
+<% caption = capture do %>
+  <p class="h2 mb-4">Exquisite interiors made here</p>
+  <p class="mb-0">
+    <%= link_to 'Get a quote', '/contact/',
+      class: 'btn btn-outline-light rounded-pill text-uppercase px-5' %>
+  </p>
+<% end %>
+
 <%= content_tag :div, nil, class: 'video-hero mb-5', data: {
     video: image_path('services/hero/hero.mp4'),
     slides: [{
       image:    image_path('services/hero/1.jpg'),
-      caption:  'New Construction',
-      href:     '#new-construction',
+      caption:  caption,
       time:     7,
     },{
       image:    image_path('services/hero/2.jpg'),
-      caption:  'Restoration',
-      href:     '#remodeling',
+      caption:  caption,
       time:     15,
     },{
       image:    image_path('services/hero/3.jpg'),
-      caption:  'Custom Home Building',
-      href:     '#new-construction',
+      caption:  caption,
       time:     21,
     },{
       image:    image_path('services/hero/4.jpg'),
-      caption:  'Renovation',
-      href:     '#remodeling',
+      caption:  caption,
       time:     28,
     }].to_json
   } %>

@@ -22,22 +22,27 @@ testimonials:
     builds, our home is special to us with a personal touch.
 ---
 
+<% caption = capture do %>
+  <p class="h2 mb-4">We don’t build houses,<br> we build homes.</p>
+  <p class="mb-0">
+    <%= link_to 'Get a quote', '/contact/',
+      class: 'btn btn-outline-light rounded-pill text-uppercase px-5' %>
+  </p>
+<% end %>
+
 <%= content_tag :div, nil, class: 'video-hero mb-5', data: {
     video: image_path('home/hero/hero.mp4'),
     slides: [{
       image:    image_path('home/hero/built-to-last.jpg'),
-      caption:  'Built to Last',
-      href:     '#built-to-last',
+      caption:  caption,
       time:     10.6666667,
     },{
       image:    image_path('home/hero/built-to-evolve.jpg'),
-      caption:  'Built to Evolve',
-      href:     '#built-to-evolve',
+      caption:  caption,
       time:     21.3333333,
     },{
       image:    image_path('home/hero/built-to-design.jpg'),
-      caption:  'Built to Design',
-      href:     '#built-to-design',
+      caption:  caption,
       time:     32,
     }].to_json
   } %>

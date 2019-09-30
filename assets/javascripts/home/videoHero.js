@@ -1,18 +1,8 @@
 const videoHero = {
   createCaption (slideData) {
-    const caption         = document.createElement('div')
-    const captionHeading  = document.createElement('h1')
-    const captionLink     = document.createElement('a')
-    const captionText     = document.createTextNode(slideData.caption)
-
-    caption.className = 'carousel-caption'
-    captionLink.className = 'text-white'
-    captionLink.setAttribute('href', slideData.href)
-
-    captionLink.appendChild(captionText)
-    captionHeading.appendChild(captionLink)
-    caption.appendChild(captionHeading)
-
+    const caption = document.createElement('div')
+    caption.className = 'carousel-caption text-left'
+    caption.insertAdjacentHTML('beforeend', slideData.caption)
     return caption
   },
 
