@@ -2,34 +2,32 @@
 subtitle: Construction and Home Renovation in Lake Tahoe and Reno
 ---
 
-<div class="container-fluid">
-  <div class="mb-5 to-edge-right to-edge-left">
-    <%= content_tag :div, nil, class: 'video-hero', data: {
-        video: image_path('services/hero/hero.mp4'),
-        slides: [{
-          image:    image_path('services/hero/1.jpg'),
-          caption:  'New Construction',
-          href:     '#new-construction',
-          time:     7,
-        },{
-          image:    image_path('services/hero/2.jpg'),
-          caption:  'Restoration',
-          href:     '#remodeling',
-          time:     15,
-        },{
-          image:    image_path('services/hero/3.jpg'),
-          caption:  'Custom Home Building',
-          href:     '#new-construction',
-          time:     21,
-        },{
-          image:    image_path('services/hero/4.jpg'),
-          caption:  'Renovation',
-          href:     '#remodeling',
-          time:     28,
-        }].to_json
-      } %>
-  </div>
+<%= content_tag :div, nil, class: 'video-hero mb-5', data: {
+    video: image_path('services/hero/hero.mp4'),
+    slides: [{
+      image:    image_path('services/hero/1.jpg'),
+      caption:  'New Construction',
+      href:     '#new-construction',
+      time:     7,
+    },{
+      image:    image_path('services/hero/2.jpg'),
+      caption:  'Restoration',
+      href:     '#remodeling',
+      time:     15,
+    },{
+      image:    image_path('services/hero/3.jpg'),
+      caption:  'Custom Home Building',
+      href:     '#new-construction',
+      time:     21,
+    },{
+      image:    image_path('services/hero/4.jpg'),
+      caption:  'Renovation',
+      href:     '#remodeling',
+      time:     28,
+    }].to_json
+  } %>
 
+<div class="container-fluid">
   <div class="anchor" id="new-construction"></div>
 
   <div class="row mb-5">

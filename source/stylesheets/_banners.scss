@@ -33,27 +33,3 @@
     z-index: 1;
   }
 }
-
-.video-hero {
-  position: relative;
-
-  > .carousel-caption {
-    opacity: 0;
-    transition: opacity 1s;
-
-    &:not(.active) {
-      pointer-events: none;
-    }
-
-    &.active {
-      opacity: 1;
-      z-index: 11;
-    }
-  }
-
-  .carousel-caption {
-    bottom: 50%;
-    transform: translateY(50%);
-    text-shadow: 0 2px 5px rgba(#000, 0.2);
-  }
-}

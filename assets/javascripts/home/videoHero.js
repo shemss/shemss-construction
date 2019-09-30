@@ -22,8 +22,8 @@ const videoHero = {
     const caption = this.createCaption(slideData)
 
     image.setAttribute('src', slideData.image)
-    image.className = 'd-block w-100'
-    slide.className = 'carousel-item'
+    image.className = 'video-hero-inner'
+    slide.className = 'carousel-item h-100'
 
     if (!index)
       slide.className += ' active'
@@ -50,9 +50,9 @@ const videoHero = {
     const indicatorsL   = document.createElement('ol')
 
     indicatorsL.className = 'carousel-indicators'
-    carousel.className = 'carousel slide carousel-fade'
+    carousel.className = 'carousel slide carousel-fade h-100'
     carousel.setAttribute('id', 'video-fallback-carousel')
-    carouselInner.className = 'carousel-inner'
+    carouselInner.className = 'carousel-inner h-100'
 
     slides.forEach(slide => carouselInner.appendChild(slide))
     indicators.forEach(indicator => indicatorsL.appendChild(indicator))
@@ -95,7 +95,7 @@ const videoHero = {
 
   initVideo () {
     this.hero.insertAdjacentHTML('afterbegin', `
-      <video class="img-fluid" loop muted playsinline autoplay>
+      <video class="video-hero-inner" loop muted playsinline autoplay>
         <source src="${this.hero.getAttribute('data-video')}" type="video/mp4">
       </video>
     `)
