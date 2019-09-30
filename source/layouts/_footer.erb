@@ -1,13 +1,24 @@
 <footer class="pt-5 pb-4">
   <div class="container-fluid text-center text-md-left">
-    <p>
-      Locations we serve:<br class="d-sm-none">
-      <span class="text-nowrap">
-        California License # 977400
-        <br class="d-sm-none"><span class="d-none d-sm-inline">|</span>
-        Nevada License # 0085404
-      </span>
-    </p>
+    <div class="d-md-flex align-items-center justify-content-between">
+      <p class="mb-0">
+        Locations we serve:<br class="d-sm-none">
+        <span class="text-nowrap">
+          California License # 977400
+          <br class="d-sm-none"><span class="d-none d-sm-inline">|</span>
+          Nevada License # 0085404
+        </span>
+      </p>
+
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item">
+          <%= link_to 'Classes', '/classes/' %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to 'Careers', '/careers/' %>
+        </li>
+      </ul>
+    </div>
 
     <hr>
 
