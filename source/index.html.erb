@@ -168,8 +168,8 @@ testimonials:
     <div class="col-md col-lg-7 mb-md-5">
       <div class="to-edge-left to-edge-right to-edge-right-mega">
         <%= partial 'layouts/video-modal', locals: {
-          video: 'g-ldZZTrIoM',
-          title: 'We Don’t Build Houses, We Build Homes',
+          video: 'l1Y0S-kf1TA',
+          title: 'Bath Design Showcase',
           image: image_tag('home/built-to-evolve.jpg', class: 'img-fluid'),
         } %>
       </div>
@@ -271,8 +271,12 @@ testimonials:
     </div>
     <div class="col-md">
       <div class="vertical-center to-edge-left to-edge-right">
-        <%= image_tag 'home/built-to-design.jpg',
-          class: 'img-fluid vertical-center-inner' %>
+        <%= partial 'layouts/video-modal', locals: {
+          video: 'WB5hphm6BA8',
+          title: 'Kitchen Design Showcase',
+          image: image_tag('home/built-to-design.jpg', class: 'img-fluid'),
+          class_name: 'vertical-center-inner',
+        } %>
       </div>
     </div>
   </div>
