@@ -258,7 +258,7 @@ classes:
     <% current_page.data.classes.each do |leclass| %>
       <div class="col-md-6 mb-4 d-flex flex-column">
         <% classMarkup = capture do %>
-        <div class="bg-dark text-white classes-class"
+        <div class="bg-dark text-white classes-class flex-fill"
           style="background-image: url('<%=
             image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
           %>');">
@@ -283,7 +283,7 @@ classes:
             title: leclass.name,
             video: leclass.video,
             image: classMarkup,
-            class_name: 'flex-fill',
+            class_name: 'flex-fill d-flex',
           } %>
         <% else %>
           <%= classMarkup %>
