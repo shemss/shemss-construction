@@ -50,6 +50,12 @@ classes:
   - Run Rebar
   - Mixing &amp; Pouring
   - Settling &amp; Trowel
+  apply_filter: true
+- date: 2019-05-21
+  name: Pouring Concrete
+  video: IH_lBbPM6wA
+  topics: []
+  apply_filter: true
 - date: 2019-05-22
   name: Backfill Excavation
   topics:
@@ -261,15 +267,16 @@ classes:
     upcoming classes.
   </p>
 
-  <div class="row">
+  <div class="row" style="margin: -1px;">
     <% current_page.data.classes.each do |leclass| %>
-      <div class="col-md-6 mb-4 d-flex flex-column">
+      <div class="col-md-6 d-flex" style="padding: 1px;">
         <% classMarkup = capture do %>
-        <div class="bg-dark text-white classes-class flex-fill"
+        <div class="bg-dark text-white classes-class flex-fill d-flex"
           style="background-image: url('<%=
             image_path "classes/classes/#{leclass.name.gsub('&amp;', '').parameterize}.jpg"
           %>');">
-          <div class="classes-class-inner p-3">
+          <div class="classes-class-inner flex-fill p-3 <%=
+            'classes-class-apply-filter' if leclass.apply_filter %>">
             <p class="mb-5">
               <span class="badge badge-pill badge-light">
                 <%= leclass.date.strftime('%Y') %>
@@ -297,7 +304,7 @@ classes:
         <% end %>
       </div>
     <% end %>
-    <div class="col-md-6 mb-4 d-flex flex-column">
+    <div class="col-md-6 d-flex" style="padding: 1px;">
       <div class="bg-dark text-white classes-class flex-fill"
         style="background-image: url('<%= image_path 'classes/classes/more.jpg' %>');">
         <div class="classes-class-inner p-3 d-flex align-items-center">

@@ -32,7 +32,10 @@
   background-position: center center;
 
   &-inner {
-    // background-color: rgba($dark, 0.8);
     min-height: 15rem;
+  }
+
+  &-apply-filter {
+    background-color: rgba(#353a3f, 0.7);
   }
 }
