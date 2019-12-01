@@ -5,14 +5,27 @@
 
   background: #000;
 
-  //           base  - nav    - info  - slogan
-  height: calc(100vh - 3.5rem - 17rem - 7rem);
+  //           base  - nav    - info       + padding
+  height: calc(100vh - 3.5rem - 16.8125rem + 1rem);
   min-height: 45vw;
 
   @include media-breakpoint-up(sm) {
-    //           base  - nav    - info/slogan
-    height: calc(100vh - 4.5rem - 18.75rem);
+    //           base  - nav    - info       + padding
+    height: calc(100vh - 3.5rem - 21.0625rem + 1rem);
     min-height: 35vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    //           base  - nav    - info       + offset + padding
+    height: calc(100vh - 4.5rem - 18.3125rem + 5rem + 1rem);
+  }
+
+  @media (max-height: 414px) {
+    min-height: calc(100vh - 3.5rem);
+
+    @include media-breakpoint-up(md) {
+      min-height: calc(100vh - 4.5rem);
+    }
   }
 }
 
@@ -155,8 +168,8 @@ $cloud-height: 836px * $cloud-scale;
 
 .contact-block {
   @include media-breakpoint-up(md) {
-    margin-top: -83px;
-    margin-bottom: 83px;
+    margin-top: -5rem;
+    margin-bottom: 5rem;
   }
 }
 
