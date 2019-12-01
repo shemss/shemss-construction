@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel watch assets/javascripts/*.js* -d tmp/assets/javascripts",
-    "build-js": "parcel build assets/javascripts/*.js* -d tmp/assets/javascripts",
+    "dev": "parcel watch 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
+    "build-js": "parcel build 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
     "serve": "bundle exec middleman serve",
     "build": "bundle exec middleman build",
     "deploy": "bundle exec middleman s3_sync"
