@@ -50,6 +50,12 @@ activate :external_pipeline,
   source: 'tmp/assets',
   latency: 1
 
+activate :external_pipeline,
+  name: :image,
+  command: "ruby gallery.rb #{'--watch' unless build?}",
+  source: 'tmp/gallery',
+  latency: 1
+
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 

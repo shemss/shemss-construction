@@ -7,3 +7,6 @@ gem 'middleman-minify-html'
 
 gem 'middleman-s3_sync'
 gem 'mime-types'
+
+gem 'dimensions'
+gem 'listen', '~> 3.0'
