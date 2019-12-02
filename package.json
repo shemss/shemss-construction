@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel watch 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
-    "build-js": "parcel build 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
+    "dev": "yarn run parcel watch 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
+    "build-js": "yarn run parcel build 'assets/javascripts/*.js*' -d tmp/assets/javascripts",
     "serve": "bundle exec middleman serve",
     "build": "bundle exec middleman build",
     "deploy": "bundle exec middleman s3_sync"
@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "parcel": "^1.12.4",
     "photoswipe": "^4.1.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
