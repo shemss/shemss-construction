@@ -1,25 +1,17 @@
 import React from 'react'
 
-import Tags   from './Tags'
-import Photos from './Photos'
+import Sidebar  from './Sidebar'
+import Photos   from './Photos'
 
 const Content = props =>
-  <div className="container-fluid">
-    <Tags
-      label="Projects"
-      tag={props.project}
-      tags={props.projects}
-      setTag={props.setProject}
-    />
+  <div className="container-fluid d-sm-flex">
+    <div className="px-0" style={{ width: '15rem' }}>
+      <Sidebar {...props} />
+    </div>
 
-    <Tags
-      label="Tags"
-      tag={props.tag}
-      tags={props.tags}
-      setTag={props.setTag}
-    />
-
-    <Photos {...props} />
+    <div className="flex-fill pt-5 pt-sm-0">
+      <Photos {...props} />
+    </div>
   </div>
 
 export default Content

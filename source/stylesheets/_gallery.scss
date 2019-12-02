@@ -1,0 +1,27 @@
+.gallery-sidebar {
+  top: 3.5rem;
+  height: calc(100vh - 3.5rem);
+
+  @include media-breakpoint-down(xs) {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &-open {
+      transform: none;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    position: sticky;
+  }
+
+  @include media-breakpoint-up(md) {
+    top: 4.5rem;
+    height: calc(100vh - 4.5rem);
+  }
+}
