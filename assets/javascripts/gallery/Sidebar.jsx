@@ -33,13 +33,6 @@ const Sidebar = props => {
 
       <div className="flex-fill overflow-auto">
         <Tags
-          label="Projects"
-          tag={props.project}
-          tags={props.projects}
-          setTag={props.setProject}
-        />
-
-        <Tags
           label="Tags"
           tag={props.tag}
           tags={props.tags}
