@@ -2,30 +2,38 @@
 title: Gallery
 ---
 
+<%
+photos = sitemap.resources.select do |r|
+  r.path.start_with?('images/gallery/') &&
+  !r.path.include?('/thumbs/')
+end.map do |image|
+  path = image.path[7..-1]
+  thumb = path.split('/').insert(-2, 'thumbs').join('/')
+  project_slug = image.path.split('/')[-2]
+  project = project_slug.titleize
+  project = 'A-Frame' if project == 'A Frame' # exception to rule
+  filename = image.path.split('/').last
+  tag = filename.sub(/\A#{project_slug}\-/, '').sub(/(\-\d+)?\.jpg\z/, '')
+  {
+    file:     image_path(path),
+    thumb:    image_path(thumb),
+    project:  project,
+    tags:     [ tag ],
+    size:     Dimensions.dimensions(File.join('tmp/gallery', image.path)),
+  }
+end
+projects = photos.map { |p| p[:project] }.uniq
+tags = photos.map { |p| p[:tags] }.flatten.uniq
+%>
+
 <div id="ApplicationRoot"></div>
 <% content_for :foot do %>
   <%= javascript_include_tag 'gallery' %>
   <script>
     Application.start(<%= {
-      photos: sitemap.resources.select do |r|
-        r.path.start_with?('images/gallery/') &&
-        !r.path.include?('/thumbs/')
-      end.map do |image|
-        path = image.path[7..-1]
-        thumb = path.split('/').insert(-2, 'thumbs').join('/')
-        project_slug = image.path.split('/')[-2]
-        project = project_slug.titleize
-        project = 'A-Frame' if project == 'A Frame' # exception to rule
-        filename = image.path.split('/').last
-        tag = filename.sub(/\A#{project_slug}\-/, '').sub(/(\-\d+)?\.jpg\z/, '')
-        {
-          file:     image_path(path),
-          thumb:    image_path(thumb),
-          project:  project,
-          tags:     [ tag ],
-          size:     Dimensions.dimensions(File.join('tmp/gallery', image.path)),
-        }
-      end
+      photos: photos.group_by { |p| p[:project] },
+      projects: projects,
+      tags: tags,
     }.to_json %>)
   </script>
   <%= partial 'layouts/photoswipe' %>

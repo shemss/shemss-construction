@@ -7,16 +7,12 @@ import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 import parameterize from './parameterize'
 
 const Photos = props => {
-  const filteredPhotos = props.photos.filter(photo =>
-    (props.project == null || props.project == parameterize(photo.project)) &&
-    (props.tag == null || photo.tags.indexOf(props.tag) > -1 )
-  )
-  const flipKey = parameterize(filteredPhotos.map(p => p.file).join())
+  const flipKey = parameterize(props.project.filteredPhotos.map(p => p.file).join())
 
   return (
-    <div style={{ margin: '-1px', WebkitTransform: 'translate3d(0,0,0)' }}>
-      <Flipper flipKey={flipKey} className="row mx-0">
-        { filteredPhotos.map((photo, index) =>
+    <div style={{ margin: '-1px' }}>
+      <Flipper flipKey={flipKey} className="row mx-0 pr-5 flex-nowrap overflow-auto">
+        { props.project.filteredPhotos.map((photo, index) =>
           <Flipped
             key={parameterize(photo.file)}
             flipId={parameterize(photo.file)}
@@ -25,6 +21,7 @@ const Photos = props => {
               spring({
                 onUpdate: val => {
                   el.style.opacity = val
+                  el.style.transform = `scale(${val})`
                 },
                 delay: index * 50,
               })
@@ -33,7 +30,8 @@ const Photos = props => {
               spring({
                 config: { overshootClamping: true },
                 onUpdate: val => {
-                  el.style.transform = `scale(${1 - val})`;
+                  el.style.opacity = 1 - val
+                  el.style.transform = `scale(${1 - val})`
                 },
                 delay: index * 50,
                 onComplete: removeElement,
@@ -45,16 +43,13 @@ const Photos = props => {
               }
             }}
           >
-            <div
-              key={parameterize(photo.file)}
-              className="col-md-6 px-0"
-            >
+            <div className="col-md-6 px-0">
               <a
                 href={photo.file}
                 onClick={e => {
                   e.preventDefault()
                   const pswpElement = document.querySelector('.pswp')
-                  const items = filteredPhotos.map(item => ({
+                  const items = props.project.filteredPhotos.map(item => ({
                     src:    item.file,
                     msrc:   item.thumb,
                     title:  [

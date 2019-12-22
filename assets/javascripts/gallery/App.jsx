@@ -6,18 +6,18 @@ import parameterize from './parameterize'
 
 const App = ({ photos, ...props }) => {
   const projects = useMemo(() =>
-    [ ...new Set(photos.map(p => p.project)) ].map(project => ({
+    props.projects.map(project => ({
       name: project,
       slug: parameterize(project),
     })),
-  photos)
+  props.projects)
 
   const tags = useMemo(() =>
-    [ ...new Set([].concat.apply([], photos.map(p => p.tags))) ].map(tag => ({
+    props.tags.map(tag => ({
       name: tag[0].toUpperCase() + tag.slice(1).replace(/\-+/g, ' '),
       slug: tag,
     })),
-  photos)
+  props.tags)
 
   const [ project, setProject ] = useState(null)
   const [ tag, setTag ]         = useState(null)
