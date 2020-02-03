@@ -43,7 +43,7 @@ const Photos = props =>
             }
           }}
         >
-          <div className={`${props.expand ? 'col-md-12' : 'col-md-6'} px-0`}>
+          <div className={`${props.expand ? 'col-12' : 'col-12 col-md-6'} px-0`}>
             <a
               href={photo.file}
               onClick={props.toggleExpand}
