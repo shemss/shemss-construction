@@ -1,12 +1,13 @@
 .gallery-sidebar {
-  top: 3.5rem;
-  height: calc(100vh - 3.5rem);
+  z-index: 1;
 
   @include media-breakpoint-down(xs) {
+    top: 3.5rem;
+    height: calc(100vh - 3.5rem);
+
     position: fixed;
     width: 100%;
     left: 0;
-    z-index: 1;
 
     transform: translateX(-100%);
     transition: transform 0.5s;
@@ -22,6 +23,5 @@
 
   @include media-breakpoint-up(md) {
     top: 4.5rem;
-    height: calc(100vh - 4.5rem);
   }
 }

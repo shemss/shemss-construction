@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Tags = ({ label, tags, tag, setTag }) =>
-  <ul className="nav flex-column mb-4">
+  <ul className="nav flex-column flex-sm-row mb-2">
     <li className="nav-item">
       <a
         className="nav-link disabled text-body"
