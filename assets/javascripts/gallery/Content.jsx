@@ -1,5 +1,4 @@
 import React from 'react'
-import { Flipper, Flipped, spring } from 'react-flip-toolkit'
 
 import Sidebar  from './Sidebar'
 import Photos   from './Photos'
