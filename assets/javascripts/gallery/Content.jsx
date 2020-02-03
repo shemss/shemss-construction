@@ -19,14 +19,12 @@ const Content = props =>
           <Flipped
             key={project.slug}
             flipId={project.slug}
-            stagger
             onAppear={(el, index) =>
               spring({
                 onUpdate: val => {
                   el.style.opacity = val
                   el.style.transform = `scale(${val})`
                 },
-                delay: index * 50,
               })
             }
             onExit={(el, index, removeElement) => {
@@ -36,7 +34,6 @@ const Content = props =>
                   el.style.opacity = 1 - val
                   el.style.transform = `scale(${1 - val})`
                 },
-                delay: index * 50,
                 onComplete: removeElement,
               })
 
