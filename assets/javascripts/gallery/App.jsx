@@ -9,6 +9,7 @@ const App = ({ photos, ...props }) => {
     props.projects.map(project => ({
       name: project,
       slug: parameterize(project),
+      ...props.descriptions[parameterize(project)],
     })),
   props.projects)
 

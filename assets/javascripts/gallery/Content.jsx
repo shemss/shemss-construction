@@ -11,15 +11,11 @@ const Content = props =>
       { props.filteredProjects.map((project, index) =>
         <div key={project.slug} className="mb-5">
           <div className="container-fluid">
-            <h2 className="mb-4">{project.name}</h2>
+            <h2 className="mb-4">
+              {[ project.name, project.title ].filter(Boolean).join(' — ')}
+            </h2>
             <p className="mb-4" style={{ maxWidth: '52rem' }}>
-              Home is where the heart is... Your home is a reflection of you
-              -the person you are, the life you live, and the family you
-              cherish. Large kitchen & living room areas that also grant you
-              access to the large deck built onto the back of the house.
-              SHEMSS will take your ideas and dreams to create a unique space
-              that provides the function, form, and aesthetic that's perfect
-              for you.
+              {project.description}
             </p>
           </div>
 

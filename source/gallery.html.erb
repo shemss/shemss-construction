@@ -1,5 +1,70 @@
 ---
 title: Gallery
+
+descriptions:
+  917-tata:
+    title: Simply Majestic
+    description: >
+      Home is where the heart is... Your home is a reflection of you -the person
+      you are, the life you live, and the family you cherish. Large kitchen &
+      living room areas that also grant you access to the large deck built onto
+      the back of the house. SHEMSS will take your ideas and dreams to create a
+      unique space that provides the function, form, and aesthetic that’s
+      perfect for you.
+  921-tata:
+    title: Live The Dream
+    description: >
+      From traditional and chic, to paired down minimalist-modern, we provide
+      infinite options to create a space that fills you with joy. Your custom
+      completed home is now much like a blank canvas awaiting your personal
+      stamp, a finishing touch.
+  925-tata:
+    title: Homey Getaway
+    description: >
+      The “Tata” exemplifies open concept living. Centered around a large
+      kitchen, living, and dining space it’s a family shindig waiting to unfold!
+      A modern touch of Natural Stone, Wood, Vaulted Ceilings & Large Windows
+      thru-out the house. Simply put, we build houses to withstand the test of
+      time.
+  a-frame:
+    description: >
+      Classic beautiful A-frame mountain modern cabin. Located in South Lake
+      Tahoe CA near beautiful Lake Tahoe. We not only build modern homes we also
+      remodel. In this classic charming A-frame cabin, we remodeled the kitchen
+      and bath. The idea was to make kitchen more open by eliminating upper
+      cabinets and install open shelves instead. This idea allowed us to make
+      the illusion of a bigger space in the small kitchen.
+  balboa:
+    title: Balancing Work and Style
+    description: >
+      “When we are designing for a homeowner, we must be very personal with them
+      about how they live, what they want and what their dreams are.”
+  clement:
+    description: >
+      When you combine modern style with mountain architecture the result is a
+      stunning contemporary home that blends organically into its surroundings.
+      Our Mountain Modern designs capture the spirit of mountain architecture,
+      which results in truly unique homes for our clients.
+  cochise:
+    description: >
+      Fun Remodeling Trends For Your Bathroom how does chrome make you feel,
+      what about wood or stone, or rustic touches?  We reveal what’s trending in
+      textures, finishes, details, fixtures, materials, vanity, accessories,
+      styles and ideas to beautify your space.
+  garden-shed:
+    description: >
+      We not only design quality homes for our clients, but we also design and
+      build beautiful lasting quality sheds that won't be an eyesore in your
+      yard. SHEMSS offers customers a unique, timeless experience. We build
+      Sheds that are meant to last. Why waste money on sheds that fall apart
+      within a year becoming ugly and just adding to the list of junk that you
+      need to get rid of.
+  gardner:
+    description: >
+      Walk into a GARDNER model Classic Mid-Century Modern style 4 bed/3bath
+      home. The great room is inviting with high ceilings adorned with wooden
+      beams. You won't miss the large beauty of a fireplace, and a stylish
+      kitchen making it a pleasure to entertain.
 ---
 
 <%
@@ -31,6 +96,7 @@ tags = photos.map { |p| p[:tags] }.flatten.uniq
   <%= javascript_include_tag 'gallery' %>
   <script>
     Application.start(<%= {
+      descriptions: current_page.data.descriptions,
       photos: photos.group_by { |p| p[:project] },
       projects: projects,
       tags: tags,
