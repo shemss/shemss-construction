@@ -7,7 +7,7 @@ const Sidebar = props => {
 
   return <>
     <button
-      className="btn btn-light px-3 position-fixed d-sm-none"
+      className="btn btn-light px-3 position-fixed d-sm-none btn-sidebar"
       onClick={() => setOpen(true)}
       style={{
         left: 0,

@@ -1,9 +1,13 @@
+.btn-sidebar,
+.gallery-sidebar {
+  top: 3.4375rem;
+}
+
 .gallery-sidebar {
   z-index: 1;
 
   @include media-breakpoint-down(xs) {
-    top: 3.5rem;
-    height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.4375);
 
     position: fixed;
     width: 100%;
