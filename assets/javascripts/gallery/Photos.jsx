@@ -1,4 +1,5 @@
 import React from 'react'
+import { Flipper, Flipped, spring } from 'react-flip-toolkit'
 
 import parameterize from './parameterize'
 
