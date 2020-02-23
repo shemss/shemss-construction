@@ -1,16 +1,15 @@
 import React from 'react'
 import { Flipper, Flipped, spring } from 'react-flip-toolkit'
+import PhotoSwipe from 'photoswipe'
+import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 
 import parameterize from './parameterize'
 
-const Photos = ({ expand, ...props }) =>
+const Photos = props =>
   <div style={{ margin: '-1px' }}>
     <Flipper
-      flipKey={parameterize(
-        props.project.filteredPhotos.map(p => p.file).concat(expand).join()
-      )}
-      className={expand ? '' : 'd-flex pr-5 flex-nowrap overflow-auto'}
-      onComplete={props.completeScrollWatch}
+      flipKey={parameterize(props.project.filteredPhotos.map(p => p.file).join())}
+      className="d-flex pr-5 flex-nowrap overflow-auto"
     >
       { props.project.filteredPhotos.map((photo, index) =>
         <Flipped
@@ -45,18 +44,36 @@ const Photos = ({ expand, ...props }) =>
         >
           <a
             href={photo.file}
-            onClick={props.toggleExpand}
+            onClick={e => {
+              e.preventDefault()
+              const pswpElement = document.querySelector('.pswp')
+              const items = props.project.filteredPhotos.map(item => ({
+                src:    item.file,
+                msrc:   item.thumb,
+                title:  [
+                  item.project,
+                  item.tags.map(tag =>
+                    tag[0].toUpperCase() + tag.slice(1).replace(/\-+/, ' ')
+                  ).join(', ') ].join(' - '),
+                w: item.size[0],
+                h: item.size[1],
+              }))
+              const gallery = new PhotoSwipe(
+                pswpElement,
+                PhotoSwipeUI_Default,
+                items,
+                { index }
+              )
+              gallery.init()
+            }}
             className="d-block"
             style={{
-              backgroundImage: [ expand ? photo.file : null, photo.thumb ]
-              .filter(Boolean).map(p => `url("${p}")`).join(),
+              backgroundImage:    `url("${photo.thumb}")`,
               backgroundPosition: 'center center',
               backgroundSize:     'cover',
               border:             '1px solid #fff',
-              paddingTop:   expand ? photo.size[0] / photo.size[1] * 100 + '%' : 0,
-              paddingLeft:  expand ? 0 : photo.size[1] / photo.size[0] * 40 + 'vw',
-              width:        expand ? '100%' : 'auto',
-              height:       expand ? 'auto' : '40vw',
+              paddingLeft:        photo.size[0] / photo.size[1] * 40 + 'vw',
+              height:             '40vw',
             }}
           ></a>
         </Flipped>

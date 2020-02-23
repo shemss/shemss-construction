@@ -73,7 +73,7 @@ configure :build do
   activate :gzip
 
   # Fingerprints on assets
-  activate :asset_hash,
+  activate :asset_hash, ignore: %w(stylesheets/default-skin.svg),
     exts: (app.config[:asset_extensions] - %w(.ico .map) + %w(.mp4))
 end
 
