@@ -16,8 +16,9 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "parcel": "^1.12.4",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-flip-toolkit": "^7.0.6"
+    "prop-types": "^15.x.x",
+    "react": "16.x",
+    "react-dom": ">= 16.x",
+    "react-flip-toolkit": "^7.0.8"
   }
 }

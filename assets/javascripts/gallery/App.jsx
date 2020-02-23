@@ -45,18 +45,29 @@ const App = ({ photos, ...props }) => {
     expandTop.current = e.target.getBoundingClientRect().top
   }
 
-  const scrollToPhoto = () => {
+  const scrollWatch = () => {
     if (!expandTop.current || !expandEl) return
     const rect = expandEl.getBoundingClientRect()
     const top = window.scrollY + rect.top - expandTop.current
     scrollTo(window.scrollX, top)
+    requestAnimationFrame(scrollWatch)
   }
 
-  useEffect(scrollToPhoto, [ expand ])
+  const completeScrollWatch = () => {
+    completeCount.current += 1
+    if (completeCount.current == filteredProjects.length) {
+      expandTop.current = null
+      completeCount.current = 0
+      setExpandEl(null)
+    }
+  }
+
+  useEffect(scrollWatch, [ expand ])
 
   return (
     <Content {...{
       filteredProjects, tags, tag, setTag, expand, toggleExpand,
+      completeScrollWatch,
     }} />
   )
 }
