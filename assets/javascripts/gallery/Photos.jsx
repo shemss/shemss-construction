@@ -16,12 +16,14 @@ const Photos = ({ expand, ...props }) =>
         <Flipped
           key={parameterize(photo.file)}
           flipId={parameterize(photo.file)}
+          stagger
           onAppear={(el, index) =>
             spring({
               onUpdate: val => {
                 el.style.opacity = val
                 el.style.transform = `scale(${val})`
               },
+              delay: index * 50,
             })
           }
           onExit={(el, index, removeElement) => {
@@ -31,6 +33,7 @@ const Photos = ({ expand, ...props }) =>
                 el.style.opacity = 1 - val
                 el.style.transform = `scale(${1 - val})`
               },
+              delay: index * 50,
               onComplete: removeElement,
             })
 
