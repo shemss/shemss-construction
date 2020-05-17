@@ -20,6 +20,7 @@
     "prop-types": "^15.x.x",
     "react": "16.x",
     "react-dom": ">= 16.x",
-    "react-flip-toolkit": "^7.0.8"
+    "react-flip-toolkit": "^7.0.8",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }
