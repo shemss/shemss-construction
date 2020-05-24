@@ -49,9 +49,6 @@ const Content = props =>
                 <h2 className="mb-4">
                   {[ project.name, project.title ].filter(Boolean).join(' — ')}
                 </h2>
-                <p className="mb-4" style={{ maxWidth: '52rem' }}>
-                  {project.description}
-                </p>
               </div>
 
               <Photos {...props} key={project.slug} project={project} />

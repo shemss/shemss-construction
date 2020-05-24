@@ -3,8 +3,6 @@ import { Flipper, Flipped, spring } from 'react-flip-toolkit'
 import PhotoSwipe from 'photoswipe'
 import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 
-import parameterize from './parameterize'
-
 import smoothscroll from 'smoothscroll-polyfill'
 smoothscroll.polyfill()
 
@@ -24,14 +22,14 @@ const Photos = props => {
   return (
     <div className="position-relative" style={{ margin: '-1px' }}>
       <Flipper
-        flipKey={parameterize(props.project.filteredPhotos.map(p => p.file).join())}
+        flipKey={props.project.filteredPhotos.map(p => p.file).join()}
         className="d-flex pr-5 flex-nowrap overflow-auto"
         ref={container}
       >
         { props.project.filteredPhotos.map((photo, index) =>
           <Flipped
-            key={parameterize(photo.file)}
-            flipId={parameterize(photo.file)}
+            key={photo.file}
+            flipId={photo.file}
             stagger
             onAppear={(el, index) =>
               spring({

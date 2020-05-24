@@ -1,8 +1,9 @@
 ---
 title: Gallery
 
-descriptions:
+projects:
   917-tata:
+    order: 100
     title: Simply Majestic
     description: >
       Home is where the heart is... Your home is a reflection of you -the person
@@ -12,6 +13,7 @@ descriptions:
       unique space that provides the function, form, and aesthetic that’s
       perfect for you.
   921-tata:
+    order: 200
     title: Live The Dream
     description: >
       From traditional and chic, to paired down minimalist-modern, we provide
@@ -19,6 +21,7 @@ descriptions:
       completed home is now much like a blank canvas awaiting your personal
       stamp, a finishing touch.
   925-tata:
+    order: 300
     title: Homey Getaway
     description: >
       The “Tata” exemplifies open concept living. Centered around a large
@@ -27,6 +30,7 @@ descriptions:
       thru-out the house. Simply put, we build houses to withstand the test of
       time.
   a-frame:
+    order: 600
     description: >
       Classic beautiful A-frame mountain modern cabin. Located in South Lake
       Tahoe CA near beautiful Lake Tahoe. We not only build modern homes we also
@@ -35,23 +39,27 @@ descriptions:
       cabinets and install open shelves instead. This idea allowed us to make
       the illusion of a bigger space in the small kitchen.
   balboa:
+    order: 500
     title: Balancing Work and Style
     description: >
       “When we are designing for a homeowner, we must be very personal with them
       about how they live, what they want and what their dreams are.”
   clement:
+    order: 700
     description: >
       When you combine modern style with mountain architecture the result is a
       stunning contemporary home that blends organically into its surroundings.
       Our Mountain Modern designs capture the spirit of mountain architecture,
       which results in truly unique homes for our clients.
   cochise:
+    order: 800
     description: >
       Fun Remodeling Trends For Your Bathroom how does chrome make you feel,
       what about wood or stone, or rustic touches?  We reveal what’s trending in
       textures, finishes, details, fixtures, materials, vanity, accessories,
       styles and ideas to beautify your space.
   garden-shed:
+    order: 400
     description: >
       We not only design quality homes for our clients, but we also design and
       build beautiful lasting quality sheds that won't be an eyesore in your
@@ -60,11 +68,19 @@ descriptions:
       within a year becoming ugly and just adding to the list of junk that you
       need to get rid of.
   gardner:
+    order: 900
     description: >
       Walk into a GARDNER model Classic Mid-Century Modern style 4 bed/3bath
       home. The great room is inviting with high ceilings adorned with wooden
       beams. You won't miss the large beauty of a fireplace, and a stylish
       kitchen making it a pleasure to entertain.
+
+tags:
+- Outdoor
+- Living space
+- Bath
+- Bedroom
+- Kitchen
 ---
 
 <%
@@ -87,8 +103,26 @@ end.map do |image|
     size:     Dimensions.dimensions(File.join('tmp/gallery', image.path)),
   }
 end
-projects = photos.map { |p| p[:project] }.uniq
-tags = photos.map { |p| p[:tags] }.flatten.uniq
+
+projects = photos.map { |p| p[:project] }.uniq.map do |name|
+  {
+    name: name,
+    slug: name.parameterize,
+  }
+end.sort do |a, b|
+  current_page.data.projects[b[:slug]].order <=>
+  current_page.data.projects[a[:slug]].order
+end
+
+tags = photos.map { |p| p[:tags] }.flatten.uniq.map do |slug|
+  {
+    name: slug.underscore.humanize,
+    slug: slug,
+  }
+end.sort do |a, b|
+  current_page.data.tags.index(a[:name]) <=>
+  current_page.data.tags.index(b[:name])
+end
 %>
 
 <div id="ApplicationRoot"></div>
@@ -96,7 +130,6 @@ tags = photos.map { |p| p[:tags] }.flatten.uniq
   <%= javascript_include_tag 'gallery' %>
   <script>
     Application.start(<%= {
-      descriptions: current_page.data.descriptions,
       photos: photos.group_by { |p| p[:project] },
       projects: projects,
       tags: tags,
