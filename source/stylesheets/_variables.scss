@@ -219,7 +219,7 @@ $enable-responsive-font-sizes:                true;
 // // Set the number of columns and specify the width of the gutters.
 
 // $grid-columns:                12 !default;
-// $grid-gutter-width:           30px !default;
+$grid-gutter-width:           2rem;
 
 
 // // Components
@@ -507,7 +507,7 @@ $font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "S
 // $form-check-inline-margin-x:            .75rem !default;
 // $form-check-inline-input-margin-x:      .3125rem !default;
 
-// $form-grid-gutter-width:                10px !default;
+$form-grid-gutter-width:                0.5rem;
 // $form-group-margin-bottom:              1rem !default;
 
 // $input-group-addon-color:               $input-color !default;

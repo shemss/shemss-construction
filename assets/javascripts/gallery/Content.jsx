@@ -44,7 +44,7 @@ const Content = props =>
               }
             }}
           >
-            <div className="mb-5">
+            <div className="mb-5 overflow-hidden">
               <div className="container-fluid">
                 <h2 className="mb-4">
                   {[ project.name, project.title ].filter(Boolean).join(' — ')}

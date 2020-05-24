@@ -1,14 +1,12 @@
 .container-fluid {
-  max-width: (1140px + (60px * 2));
+  max-width: 1140px;
+
+  padding-left: ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
 
   @include media-breakpoint-up(md) {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  @include media-breakpoint-up(lg) {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: ($grid-gutter-width * 0.75);
+    padding-right: ($grid-gutter-width * 0.75);
   }
 }
 

@@ -31,7 +31,7 @@ const Sidebar = props => {
         </button>
       </div>
 
-      <div className="container-fluid px-0 px-md-3 px-lg-5 flex-fill overflow-auto">
+      <div className="container-fluid px-0 px-md-4 flex-fill overflow-auto">
         <Tags
           label="Tags"
           tag={props.tag}
