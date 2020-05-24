@@ -1,15 +1,7 @@
 import React from 'react'
 
-const Tags = ({ label, tags, tag, setTag }) =>
-  <ul className="nav flex-column flex-sm-row mb-2">
-    <li className="nav-item">
-      <a
-        className="nav-link disabled text-body"
-        href="#"
-        tabIndex="-1"
-        aria-disabled="true"
-      >{label}:</a>
-    </li>
+const Tags = ({ tags, tag, setTag }) =>
+  <ul className="nav flex-column flex-sm-row mb-2 mx-md-n3">
     <li className="nav-item">
       <a
         className={`nav-link ${tag ? 'text-muted' : 'active'}`}
@@ -18,7 +10,7 @@ const Tags = ({ label, tags, tag, setTag }) =>
           e.preventDefault()
           setTag(null)
         }}
-      >All {label}</a>
+      >All</a>
     </li>
     { tags.map(({ name, slug }) =>
       <li key={slug} className="nav-item">
