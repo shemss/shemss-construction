@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><%= [ current_page.data.title, data.site.title,
-      current_page.data.subtitle ].compact.join(' - ') %></title>
+    <title><%= [
+      current_page.data.title,
+      current_page.respond_to?(:blog_options) ?
+        current_page.blog_options.name.titleize : nil,
+      data.site.title,
+      current_page.data.subtitle,
+    ].compact.join(' - ') %></title>
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i"
       rel="stylesheet">

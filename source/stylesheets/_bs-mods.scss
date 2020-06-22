@@ -17,6 +17,11 @@
   color: $primary;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 0 0.2rem #000);
+}
+
 // Workaround for autoprefixer bug
 @supports (position: -webkit-sticky) {
   .sticky-top {

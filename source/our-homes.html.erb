@@ -1,0 +1,87 @@
+---
+title: Our Homes
+---
+
+<div class="container-fluid px-0">
+  <% blog.articles.each.with_index do |home, i| %>
+    <div class="row mx-0">
+      <% content_tag :div, class: [
+        'col-md-6 px-0',
+        i % 2 == 0 ? nil : 'order-md-1',
+      ].compact.join(' ') do %>
+        <% cover = content_tag :div, nil, class: 'h-100', style: %[
+          background-image: url('#{image_path("homes/#{home.slug}/cover.jpg")}');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          min-height: 10rem;
+        ].gsub(/\s+/, ' ').gsub(/\A\s|\s\z/, '') %>
+        <% floorplan = "homes/#{home.slug}/floor-plan.jpg" %>
+        <% if sitemap.find_resource_by_path("images/#{floorplan}") %>
+          <% content_tag :div, id: "carousel-home-#{home.slug}",
+            class: 'carousel slide h-100',
+            data: { ride: 'carousel', interval: false } do %>
+            <div class="carousel-inner h-100">
+              <div class="carousel-item h-100 active">
+                <%= cover %>
+              </div>
+              <div class="carousel-item h-100">
+                <%= content_tag :div, nil, class: 'h-100', style: %[
+                  background-image: url('#{image_path floorplan}');
+                  background-position: center center;
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  min-height: 10rem;
+                  filter: contrast(1.15);
+                ].gsub(/\s+/, ' ').gsub(/\A\s|\s\z/, '') %>
+              </div>
+            </div>
+            <% link_to "#carousel-home-#{home.slug}",
+              class: 'carousel-control-prev',
+              role: 'button', 'data-slide': 'prev' do %>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            <% end %>
+            <% link_to "#carousel-home-#{home.slug}",
+              class: 'carousel-control-next',
+              role: 'button', 'data-slide': 'next' do %>
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            <% end %>
+          <% end %>
+        <% else %>
+        <%= cover %>
+        <% end %>
+      <% end %>
+      <% link_to home,
+        class: 'd-block col-md-6 px-md-4 px-xl-5 text-body text-decoration-none' do %>
+        <div class="my-5">
+          <h2 class="mb-3"><%= home.data.title %></h2>
+          <p class="text-uppercase">
+            <small>Starting at <b><%= home.data.price %></b></small>
+          </p>
+          <ul class="list-inline text-uppercase">
+            <li class="list-inline-item">
+              <small><b><%= home.data.beds %></b> bed</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= home.data.baths %></b> bath</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= home.data.garage %></b> car garage</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= home.data.sqft %></b> sq. feet</small>
+            </li>
+          </ul>
+          <p class="mb-4"><%= home.data.description.split("\n").first %></p>
+          <p>
+            <span class="btn btn-primary rounded-pill text-uppercase px-5">
+              Learn More
+            </span>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

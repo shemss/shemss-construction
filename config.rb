@@ -44,6 +44,32 @@ end
 
 activate :directory_indexes
 
+activate :blog do |blog|
+  blog.name = "our-homes"
+  # This will add a prefix to all links, template references and source paths
+  blog.prefix = "our-homes"
+
+  blog.permalink = "{slug}.html"
+  # Matcher for blog source files
+  blog.sources = "{slug}.html"
+  # blog.taglink = "tags/{tag}.html"
+  blog.layout = "homes"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.default_extension = ".markdown"
+
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
+
+  # Enable pagination
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"end
+end
+
 activate :external_pipeline,
   name: :parcel,
   command: build? ? 'NODE_ENV=production yarn build-js' : 'yarn dev',

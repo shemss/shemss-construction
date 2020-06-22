@@ -1,0 +1,63 @@
+<h2 class="text-center mb-4">What We Do</h2>
+
+<div class="row mb-md-5">
+  <div class="col-sm-6 col-lg mb-5 process-col">
+    <svg class="img-fluid mb-4 process-icon">
+      <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+        .call(image_path 'home/process.svg#finding-a-lot') %>
+    </svg>
+    <h4 class="h6 text-uppercase">Finding a Lot</h4>
+    <p>
+      Selecting a lot is an exciting and potentially daunting first step in
+      the construction process. With decades of experience in new builds,
+      SHEMSS is well versed in the intricacies of site selection. We will make
+      sure that your new home finds its perfect footing. Our extended network
+      includes realtors, surveyors, and specialists who are key assets to our
+      team.
+    </p>
+  </div>
+  <div class="col-sm-6 col-lg mb-5 process-col">
+    <svg class="img-fluid mb-4 process-icon">
+      <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+        .call(image_path 'home/process.svg#designing-your-home') %>
+    </svg>
+    <h4 class="h6 text-uppercase">Designing Your Home</h4>
+    <p>
+      Step two is where the fun really begins, the designing of your dream
+      home. We offer several base designs that are fully customizable to
+      create a unique space that fits your lifestyle and expresses who you
+      are. Our clients can choose to be as “hands-on” or as “hands-off” as
+      they wish. Our process is tailored to be streamlined, innovative, and
+      fun.
+    </p>
+    <!-- <p>
+      <%= link_to 'See our plans', '/our-homes/',
+        class: 'btn btn-dark px-5 rounded-pill text-uppercase' %>
+    </p> -->
+  </div>
+  <div class="col-sm-6 col-lg mb-5 process-col">
+    <svg class="img-fluid mb-4 process-icon">
+      <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+        .call(image_path 'home/process.svg#applying-for-permits') %>
+    </svg>
+    <h4 class="h6 text-uppercase">Applying for Permits</h4>
+    <p>
+      At SHEMSS, we’re pros at efficiently navigating through the permit
+      process. With decades of building experience and hundreds of state and
+      local code inspections passed translate to a painless build with minimal
+      hold-ups.
+    </p>
+  </div>
+  <div class="col-sm-6 col-lg mb-5 process-col">
+    <svg class="img-fluid mb-4 process-icon">
+      <%= tag :use, ->(href) { { href: href, 'xlink:href': href} }
+        .call(image_path 'home/process.svg#building-your-home') %>
+    </svg>
+    <h4 class="h6 text-uppercase">Building Your Home</h4>
+    <p>
+      Buckle up! Once the site work is complete, the countdown begins. In as
+      little as six months you could be living in your new SHEMSS home. Blink
+      and you just might miss it.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+.columns-sm-2 {
+  @include media-breakpoint-up(sm) {
+    columns: 2;
+  }
+}

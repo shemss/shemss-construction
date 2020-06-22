@@ -1,0 +1,149 @@
+<% wrap_layout :layout do %>
+  <%= image_tag "homes/#{current_page.slug}/cover.jpg", class: 'img-fluid' %>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md">
+        <div class="bg-light p-4 p-sm-5 to-edge-left-mega">
+          <h2 class="hul"><%= current_page.title %></h2>
+          <p class="text-uppercase">
+            <small>Starting at <b><%= current_page.data.price %></b></small>
+          </p>
+          <ul class="list-inline text-uppercase">
+            <li class="list-inline-item">
+              <small><b><%= current_page.data.beds %></b> bed</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= current_page.data.baths %></b> bath</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= current_page.data.garage %></b> car garage</small>
+            </li>
+            <li class="list-inline-item">
+              <small><b><%= current_page.data.sqft %></b> sq. feet</small>
+            </li>
+          </ul>
+          <% current_page.data.description.split("\n").each do |paragraph| %>
+            <p><%= paragraph %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="vertical-center to-edge-left to-edge-right">
+          <%= image_tag "homes/#{current_page.slug}/side.jpg",
+            class: 'img-fluid vertical-center-inner' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-white bg-secondary text-center px-2 py-5 to-edge-right to-edge-left ready-evolve mb-5">
+      <h2>Ready to Evolve?</h2>
+      <p class="lead"><em>The Home of the Future is Waiting for You</em></p>
+    </div>
+  </div>
+
+  <div id="ApplicationRoot" class="mb-5"></div>
+
+  <div class="container-fluid">
+    <%= partial 'layouts/what-we-do' %>
+
+    <% if current_page.data.tour %>
+      <div class="embed-responsive embed-responsive-16by9 mb-5">
+        <%= content_tag :iframe, nil, class: 'embed-responsive-item',
+          src: current_page.data.tour, allowfullscreen: true,
+          allow: 'xr-spatial-tracking fullscreen' %>
+      </div>
+    <% end %>
+
+    <div class="mb-5">
+    <h2>Specs</h2>
+    <hr>
+
+    <% floorplan = "homes/#{current_page.slug}/floor-plan.jpg" %>
+    <% if sitemap.find_resource_by_path("images/#{floorplan}") %>
+      <%= image_tag floorplan, class: 'img-fluid',
+        style: 'filter: contrast(1.15)' %>
+      <hr class="mb-5">
+    <% end %>
+
+    <dl class="row">
+      <% if current_page.data.features %>
+        <dt class="col-md-3">Features</dt>
+        <dd class="col-md-9">
+          <ul class="list-unstyled mb-0 columns-sm-2">
+            <% current_page.data.features.each do |feature| %>
+              <li><%= feature %></li>
+            <% end %>
+          </ul>
+        </dd>
+        <hr class="w-100 my-5">
+      <% end %>
+
+      <dt class="col-md-3">Specifications</dt>
+      <dd class="col-md-9">
+        <ul class="list-unstyled mb-0 columns-sm-2">
+          <li>
+            <b><%= current_page.data.beds %></b> bed
+          </li>
+          <li>
+            <b><%= current_page.data.baths %></b> bath
+          </li>
+          <li>
+            <b><%= current_page.data.garage %></b> car garage
+          </li>
+          <li>
+            <b><%= current_page.data.sqft %></b> sq. feet
+          </li>
+        </ul>
+      </dd>
+      <hr class="w-100 my-5">
+
+      <% if current_page.data.options %>
+        <dt class="col-md-3">Options</dt>
+        <dd class="col-md-9">
+          <ul class="list-unstyled mb-0 columns-sm-2">
+            <% current_page.data.options.each do |option| %>
+              <li><%= option %></li>
+            <% end %>
+          </ul>
+        </dd>
+        <hr class="w-100 my-5">
+      <% end %>
+    </dl>
+
+    <%= partial 'layouts/we-build-faster' %>
+  </div>
+<% end %>
+
+<%
+photos = sitemap.resources.select do |r|
+  r.path.start_with?("images/gallery/#{current_page.slug}") &&
+  !r.path.include?('/thumbs/')
+end.map do |image|
+  path = image.path[7..-1]
+  thumb = path.split('/').insert(-2, 'thumbs').join('/')
+  project_slug = image.path.split('/')[-2]
+  project = project_slug.titleize
+  project = 'A-Frame' if project == 'A Frame' # exception to rule
+  filename = image.path.split('/').last
+  tag = filename.sub(/\A#{project_slug}\-/, '').sub(/(\-\d+)?\.jpg\z/, '')
+  {
+    file:     image_path(path),
+    thumb:    image_path(thumb),
+    project:  project,
+    tags:     [ tag ],
+    size:     Dimensions.dimensions(File.join('tmp/gallery', image.path)),
+  }
+end
+%>
+
+<% if photos.any? %>
+  <%= javascript_include_tag 'photos' %>
+  <script>
+    Application.start(<%= { project: { filteredPhotos: photos } }.to_json %>)
+  </script>
+  <%= partial 'layouts/photoswipe' %>
+<% end %>
+
+<%= javascript_include_tag 'services' %>
+
