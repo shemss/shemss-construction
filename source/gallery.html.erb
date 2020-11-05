@@ -2,6 +2,8 @@
 title: Gallery
 
 projects:
+  o-malley:
+    order: 850
   917-tata:
     order: 100
     title: Simply Majestic
@@ -91,8 +93,11 @@ end.map do |image|
   path = image.path[7..-1]
   thumb = path.split('/').insert(-2, 'thumbs').join('/')
   project_slug = image.path.split('/')[-2]
-  project = project_slug.titleize
-  project = 'A-Frame' if project == 'A Frame' # exception to rule
+  project = {
+    'a-frame'   => 'A-Frame',
+    'o-malley'  => 'O’Malley',
+  }[project_slug] || project_slug.titleize
+
   filename = image.path.split('/').last
   tag = filename.sub(/\A#{project_slug}\-/, '').sub(/(\-\d+)?\.jpg\z/, '')
   {
