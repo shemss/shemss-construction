@@ -20,7 +20,7 @@ const Photos = props => {
   })
 
   return (
-    <div className="position-relative" style={{ margin: '-1px' }}>
+    <div className="position-relative" style={{ margin: '-0.25rem' }}>
       <Flipper
         flipKey={props.project.filteredPhotos.map(p => p.file).join()}
         className="d-flex pr-5 flex-nowrap overflow-auto"
@@ -86,7 +86,7 @@ const Photos = props => {
                 backgroundImage:    `url("${photo.thumb}")`,
                 backgroundPosition: 'center center',
                 backgroundSize:     'cover',
-                border:             '1px solid #fff',
+                border:             '0.25rem solid #fff',
                 paddingLeft:        photo.size[0] / photo.size[1] * 40 + 'vw',
                 height:             '40vw',
               }}
