@@ -94,9 +94,11 @@
           <li>
             <b><%= current_page.data.baths %></b> bath
           </li>
-          <li>
-            <b><%= current_page.data.garage %></b> car garage
-          </li>
+          <% if current_page.data.garage %>
+            <li>
+              <b><%= current_page.data.garage %></b> car garage
+            </li>
+          <% end %>
           <li>
             <b><%= current_page.data.sqft %></b> sq. feet
           </li>

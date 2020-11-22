@@ -67,9 +67,11 @@ title: Our Homes
             <li class="list-inline-item">
               <small><b><%= home.data.baths %></b> bath</small>
             </li>
-            <li class="list-inline-item">
-              <small><b><%= home.data.garage %></b> car garage</small>
-            </li>
+            <% if home.data.garage %>
+              <li class="list-inline-item">
+                <small><b><%= home.data.garage %></b> car garage</small>
+              </li>
+            <% end %>
             <li class="list-inline-item">
               <small><b><%= home.data.sqft %></b> sq. feet</small>
             </li>
