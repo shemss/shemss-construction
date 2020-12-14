@@ -1,8 +1,11 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 
 import Content from './Content'
 
+const calcPreview = () => devicePixelRatio * innerWidth >= 2560
+
 const App = ({ photos, projects, tags, ...props }) => {
+  const [ largePreview, setLargePreview ] = useState(calcPreview)
   const [ tag, setTag ] = useState(null)
 
   const filteredProjects = useMemo(() =>
@@ -17,8 +20,19 @@ const App = ({ photos, projects, tags, ...props }) => {
     }).filter(project => project.filteredPhotos.length),
   projects.concat(tag))
 
+  useEffect(() => {
+    const mmChanged = e => setLargePreview(calcPreview)
+    const mm = matchMedia('screen and (min-resolution: 2dppx)')
+    mm.addListener(mmChanged)
+    addEventListener('resize', mmChanged)
+    return () => {
+      mm.removeListener(mmChanged)
+      removeEventListener(mmChanged)
+    }
+  }, [])
+
   return (
-    <Content {...{ filteredProjects, tags, tag, setTag }} />
+    <Content {...{ filteredProjects, tags, tag, setTag, largePreview }} />
   )
 }
 

@@ -83,7 +83,7 @@ const Photos = props => {
               }}
               className="d-block"
               style={{
-                backgroundImage:    `url("${photo.thumb}")`,
+                backgroundImage:    `url("${props.largePreview ? photo.file : photo.thumb}")`,
                 backgroundPosition: 'center center',
                 backgroundSize:     'cover',
                 border:             '0.25rem solid #fff',
