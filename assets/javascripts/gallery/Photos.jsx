@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Flipper, Flipped, spring } from 'react-flip-toolkit'
-import PhotoSwipe from 'photoswipe'
-import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
+
+import Photo from './Photo'
 
 import smoothscroll from 'smoothscroll-polyfill'
 smoothscroll.polyfill()
@@ -57,40 +57,7 @@ const Photos = props => {
               }
             }}
           >
-            <a
-              href={photo.file}
-              onClick={e => {
-                e.preventDefault()
-                const pswpElement = document.querySelector('.pswp')
-                const items = props.project.filteredPhotos.map(item => ({
-                  src:    item.file,
-                  msrc:   item.thumb,
-                  title:  [
-                    item.project,
-                    item.tags.map(tag =>
-                      tag[0].toUpperCase() + tag.slice(1).replace(/\-+/, ' ')
-                    ).join(', ') ].join(' - '),
-                  w: item.size[0],
-                  h: item.size[1],
-                }))
-                const gallery = new PhotoSwipe(
-                  pswpElement,
-                  PhotoSwipeUI_Default,
-                  items,
-                  { index }
-                )
-                gallery.init()
-              }}
-              className="d-block"
-              style={{
-                backgroundImage:    `url("${props.largePreview ? photo.file : photo.thumb}")`,
-                backgroundPosition: 'center center',
-                backgroundSize:     'cover',
-                border:             '0.25rem solid #fff',
-                paddingLeft:        photo.size[0] / photo.size[1] * 40 + 'vw',
-                height:             '40vw',
-              }}
-            ></a>
+            <Photo {...props} photo={photo} index={index} />
           </Flipped>
         )}
       </Flipper>
