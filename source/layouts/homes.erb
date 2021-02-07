@@ -16,9 +16,11 @@
             <li class="list-inline-item">
               <small><b><%= current_page.data.baths %></b> bath</small>
             </li>
-            <li class="list-inline-item">
-              <small><b><%= current_page.data.garage %></b> car garage</small>
-            </li>
+            <% if current_page.data.garage %>
+              <li class="list-inline-item">
+                <small><b><%= current_page.data.garage %></b> car garage</small>
+              </li>
+            <% end %>
             <li class="list-inline-item">
               <small><b><%= current_page.data.sqft %></b> sq. feet</small>
             </li>
